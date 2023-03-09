@@ -116,7 +116,10 @@ class CreatePost extends Component {
           </div>
         </section>
 
-        <section class="services-section-two services-section-careers">
+        <section
+          class="services-section-two services-section-careers"
+          style={{ marginTop: "2%" }}
+        >
           <div class="auto-container">
             <div class="wrapper-box">
               <div
