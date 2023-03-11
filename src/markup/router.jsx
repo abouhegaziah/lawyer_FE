@@ -32,6 +32,7 @@ import CasesGrid from "./pages/casesGrid";
 import CreateCase from "./pages/createCase";
 import CreatePost from "./pages/createPost";
 import Blog from "./pages/blog";
+import UploadEpisode from "./pages/uploadEpisode";
 
 class Router extends Component {
   render() {
@@ -69,6 +70,7 @@ class Router extends Component {
             <Route path="/cases" component={CasesGrid} />
             <Route path="/create-case" component={CreateCase} />
             <Route path="/create-post" component={CreatePost} />
+            <Route path="/upload-episode" component={UploadEpisode} />
             <Route path="/test" component={Testimonial1} />
           </Switch>
 

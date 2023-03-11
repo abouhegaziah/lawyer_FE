@@ -39,11 +39,8 @@ class Menu extends Component {
                         </li> */}
 
             <li class="dropdown">
-              <Link to={"/#"}>Services</Link>
+              <Link to={"/#"}>Cases</Link>
               <ul>
-                <li>
-                  <Link to={"/services-1"}>Episodes</Link>
-                </li>
                 {localStorage.getItem("admin") && (
                   <li>
                     <Link to={"/cases"}>Cases</Link>
@@ -57,6 +54,19 @@ class Menu extends Component {
                 {/* <li>
                   <Link to={"/services-details"}>Services Details</Link>
                 </li> */}
+              </ul>
+            </li>
+            <li class="dropdown">
+              <Link to={"/#"}>Episodes</Link>
+              <ul>
+                <li>
+                  <Link to={"/services-1"}>Episodes</Link>
+                </li>
+                {localStorage.getItem("admin") && (
+                  <li>
+                    <Link to={"/cases"}>Upload Episode</Link>
+                  </li>
+                )}
               </ul>
             </li>
 
