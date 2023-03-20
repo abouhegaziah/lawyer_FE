@@ -38,7 +38,7 @@ class CreatePost extends Component {
     // Request made to the backend api
     // Send formData object
     axios
-      .post("http://localhost:4000/data/upload", formData)
+      .post("https://project-sfj2.onrender.com/data/upload", formData)
       .then((response) => {
         console.log(response.data);
         this.setState({ fileURL: response.data.url });
@@ -84,7 +84,7 @@ class CreatePost extends Component {
       post: this.state.post,
     };
     axios
-      .post("http://localhost:4000/blog/addBlog", obj)
+      .post("https://project-sfj2.onrender.com/blog/addBlog", obj)
       .then((response) => {
         console.log(response.data);
       })

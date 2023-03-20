@@ -23,7 +23,7 @@ class Blog extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:4000/case`).then((res) => {
+    axios.get(`https://project-sfj2.onrender.com/case`).then((res) => {
       console.log(res.data.response);
       var arr = res.data.response;
       arr.sort(function (a, b) {

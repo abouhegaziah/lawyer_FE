@@ -22,7 +22,7 @@ export default function UploadEpisode(props) {
     e.preventDefault();
     console.log(file);
     axios
-      .post("http://localhost:4000/episode/addEpisode", {
+      .post("https://project-sfj2.onrender.com/episode/addEpisode", {
         link: file,
         title: title,
         duration: "5 min",
@@ -49,7 +49,7 @@ export default function UploadEpisode(props) {
     // Request made to the backend api
     // Send formData object
     axios
-      .post("http://localhost:4000/data/upload", formData)
+      .post("https://project-sfj2.onrender.com/data/upload", formData)
       .then((response) => {
         console.log(response.data);
         props.setFile(response.data.url);
