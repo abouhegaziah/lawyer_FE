@@ -23,6 +23,7 @@
     "react-select": "^3.1.0",
     "react-slick": "^0.25.2",
     "react-stickynode": "^3.0.2",
+    "react-video-upload-preview": "^1.0.1",
     "react-visibility-sensor": "^5.1.1",
     "simple-react-google-maps": "^1.1.2",
     "slick-carousel": "^1.8.1"

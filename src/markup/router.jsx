@@ -32,7 +32,7 @@ import CasesGrid from "./pages/casesGrid";
 import CreateCase from "./pages/createCase";
 import CreatePost from "./pages/createPost";
 import Blog from "./pages/blog";
-import UploadEpisode from "./pages/uploadEpisode";
+import UploadEpisode from "./pages/UploadEp";
 
 class Router extends Component {
   render() {

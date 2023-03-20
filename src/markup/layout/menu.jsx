@@ -64,7 +64,7 @@ class Menu extends Component {
                 </li>
                 {localStorage.getItem("admin") && (
                   <li>
-                    <Link to={"/cases"}>Upload Episode</Link>
+                    <Link to={"/upload-episode"}>Upload Episode</Link>
                   </li>
                 )}
               </ul>
