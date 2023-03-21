@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Nav, Tab, Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import Header from "../layout/header";
-import Footer from "../layout/footer";
-import Brand1 from "../element/brand1";
 import axios from "axios";
 
 const aboutbg = require("./../../assets/images/background/image-11.jpg");
-const touchbg = require("./../../assets/images/background/image-8.jpg");
 
 class CreateCase extends Component {
   state = {
@@ -27,7 +24,7 @@ class CreateCase extends Component {
   submitCase = () => {
     console.log(this.state);
     axios
-      .post("https://project-sfj2.onrender.com/case/addCase", this.state)
+      .post("http://localhost:4000/case/addCase", this.state)
       .then((response) => {
         console.log(response.data);
         this.setState({ show: true });
@@ -40,7 +37,7 @@ class CreateCase extends Component {
   handleShow = () => this.setState({ show: true });
 
   //   componentDidMount() {
-  //     axios.get(`https://project-sfj2.onrender.com/case`).then((res) => {
+  //     axios.get(`http://localhost:4000/case`).then((res) => {
   //       console.log(res.data);
   //     });
   //   }

@@ -1,9 +1,6 @@
-import React, { Component, useRef } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
 import Header from "../layout/header";
-import Footer from "../layout/footer";
-import Brand1 from "../element/brand1";
 import axios from "axios";
 
 const aboutbg = require("./../../assets/images/background/image-11.jpg");
@@ -38,7 +35,7 @@ class CreatePost extends Component {
     // Request made to the backend api
     // Send formData object
     axios
-      .post("https://project-sfj2.onrender.com/data/upload", formData)
+      .post("http://localhost:4000/data/upload", formData)
       .then((response) => {
         console.log(response.data);
         this.setState({ fileURL: response.data.url });
@@ -84,7 +81,7 @@ class CreatePost extends Component {
       post: this.state.post,
     };
     axios
-      .post("https://project-sfj2.onrender.com/blog/addBlog", obj)
+      .post("http://localhost:4000/blog/addBlog", obj)
       .then((response) => {
         console.log(response.data);
       })

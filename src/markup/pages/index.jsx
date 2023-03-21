@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Nav, Tab } from "react-bootstrap";
+import { Container, Nav, Tab } from "react-bootstrap";
 import Header from "../layout/header";
 import Footer from "../layout/footer";
 import HomeSlider1 from "./../element/home-slider1";
+import Verena from "../element/Verena";
+import axios from "axios";
 
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
@@ -18,6 +20,37 @@ const newsbg1 = require("./../../assets/images/background/image-4.jpg");
 const wellcomebg1 = require("./../../assets/images/resource/image-1.jpg");
 
 class Index extends Component {
+  state = {
+    // Initially, no file is selected
+    latestEps: null,
+  };
+  componentDidMount() {
+    axios
+      .get(`http://localhost:4000/episode/latest`)
+      .then((res) => {
+        console.log(res.data.response);
+        let temp = [];
+        res.data.response.map((ep) => {
+          temp.push({
+            image: ` ${ep.image}`,
+            // text: (
+            //   <Link to="/#" style={{ textDecoration: "none", color: "#fff" }}>
+            //     {" "}
+            //     <p style={{ fontSize: "22px", fontWeight: "bolder" }}>
+            //       {" "}
+            //       {ep.title}
+            //       <br /> <span> {ep.number}</span>
+            //     </p>{" "}
+            //   </Link>
+            // ),
+          });
+        });
+        this.setState({ latestEps: temp });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   render() {
     return (
       <>
@@ -76,80 +109,41 @@ class Index extends Component {
           </div>
         </div>
 
-        <HomeSlider1 />
-
-        {/* <!-- Welcome Setion --> */}
-        <section class="welcome-section pt-0">
-          <div class="auto-container">
-            <div class="wrapper-box">
-              <div class="row m-0">
-                {/* <!-- Welcome Block One --> */}
-                <div
-                  class="welcome-block-one col-lg-4 wow fadeInUp"
-                  data-wow-delay="200ms"
-                  data-wow-duration="1200ms"
-                >
-                  <div class="inner-box">
-                    <div class="icon-box">
-                      <span class="flaticon-analysis"></span>
-                    </div>
-                    <h2>Business</h2>
-                    <div class="text">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore.{" "}
-                    </div>
-                    <div class="read-more">
-                      <Link to={"/#"}>Read More</Link>
-                    </div>
-                  </div>
-                </div>
-                {/* <!-- Welcome Block One --> */}
-                <div
-                  class="welcome-block-one col-lg-4 wow fadeInUp"
-                  data-wow-delay="200ms"
-                  data-wow-duration="1200ms"
-                >
-                  <div
-                    class="inner-box"
-                    style={{ backgroundImage: "url(" + wellcomebg1 + ")" }}
-                  >
-                    <div class="icon-box">
-                      <span class="flaticon-tax"></span>
-                    </div>
-                    <h2>Save Your Tax</h2>
-                    <div class="text">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore.{" "}
-                    </div>
-                    <div class="read-more">
-                      <Link to={"/#"}>Read More</Link>
-                    </div>
-                  </div>
-                </div>
-                {/* <!-- Welcome Block One --> */}
-                <div
-                  class="welcome-block-one col-lg-4 wow fadeInUp"
-                  data-wow-delay="200ms"
-                  data-wow-duration="1200ms"
-                >
-                  <div class="inner-box">
-                    <div class="icon-box">
-                      <span class="flaticon-work-1"></span>
-                    </div>
-                    <h2>Business</h2>
-                    <div class="text">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore.{" "}
-                    </div>
-                    <div class="read-more">
-                      <Link to={"/#"}>Read More</Link>
-                    </div>
-                  </div>
-                </div>
+        {/* <HomeSlider1 /> */}
+        <div className="slider-wrapper">
+          <div
+            className="slider-content current slide"
+            style={{
+              background: `url('${require("./../../assets/images/6X9A0396.00_00_59_54.Still006.jpg")}') no-repeat center center`,
+              height: "900px",
+            }}
+          >
+            <div className="inner">
+              <h1>Making Your Business Idea</h1>
+              <h2>
+                Afw <span>Malaki </span>
+              </h2>
+              <div class="text">
+                Our company is one of the world’s leading management consulting
+                firms. Get in touch here asap.
+              </div>
+              <div class="btn-box">
+                <Link to={"/create-case"} class="theme-btn btn-style-one">
+                  <span class="btn-title">-- Register Case--</span>
+                </Link>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+
+        {/* <!-- Welcome Setion --> */}
+        {/* <Carousel /> */}
+        <Container style={{ marginBottom: "40px", marginTop: "20px" }}>
+          <h1 style={{ textAlign: "center", fontWeight: "bold" }}>
+            LATEST EPISODES
+          </h1>
+          {this.state.latestEps && <Verena data={this.state.latestEps} />}
+        </Container>
 
         {/* <!-- About Section --> */}
         <section class="about-section">
@@ -205,7 +199,7 @@ class Index extends Component {
                           />
                         </div>
                         <h5>Phone Number</h5>
-                        <h2>+897 6765 754</h2>
+                        <h2>+201555599441</h2>
                       </div>
                     </div>
                     <div class="info-column col-md-6">
@@ -217,7 +211,7 @@ class Index extends Component {
                           />
                         </div>
                         <h5>Email Address</h5>
-                        <h2>info@webmail.com</h2>
+                        <h2>afwmalaki@gmail</h2>
                       </div>
                     </div>
                   </div>
@@ -228,7 +222,7 @@ class Index extends Component {
         </section>
 
         {/* <!-- Services Section --> */}
-        <section class="services-section">
+        {/* <section class="services-section">
           <div class="auto-container">
             <div class="wrapper-box">
               <div class="left-column">
@@ -297,7 +291,7 @@ class Index extends Component {
                 </div>
               </div>
               <div class="right-column">
-                {/* <!-- Fact Counter --> */}
+                
                 <div class="fact-counter">
                   <div class="border-box">
                     <div class="border_top"></div>
@@ -305,7 +299,7 @@ class Index extends Component {
                     <div class="border_middile"></div>
                   </div>
                   <div class="row">
-                    {/* <!--Column--> */}
+                  
                     <div class="column counter-column col-md-6">
                       <div
                         class="inner wow fadeInLeft"
@@ -334,7 +328,7 @@ class Index extends Component {
                       </div>
                     </div>
 
-                    {/* <!--Column--> */}
+                  
                     <div class="column counter-column col-md-6">
                       <div
                         class="inner wow fadeInLeft"
@@ -363,7 +357,6 @@ class Index extends Component {
                       </div>
                     </div>
 
-                    {/* <!--Column--> */}
                     <div class="column counter-column col-md-6">
                       <div
                         class="inner wow fadeInLeft"
@@ -392,7 +385,7 @@ class Index extends Component {
                       </div>
                     </div>
 
-                    {/* <!--Column--> */}
+                  
                     <div class="column counter-column col-md-6">
                       <div
                         class="inner wow fadeInLeft"
@@ -421,7 +414,7 @@ class Index extends Component {
                       </div>
                     </div>
 
-                    {/* <!--Column--> */}
+                  
                     <div class="column counter-column col-md-6">
                       <div
                         class="inner wow fadeInLeft"
@@ -450,7 +443,7 @@ class Index extends Component {
                       </div>
                     </div>
 
-                    {/* <!--Column--> */}
+                  
                     <div class="column counter-column col-md-6">
                       <div
                         class="inner wow fadeInLeft"
@@ -511,13 +504,13 @@ class Index extends Component {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* <!-- Gallery Section --> */}
-        <PortfolioFilter1 />
+        {/* <PortfolioFilter1 /> */}
 
         {/* <!-- Video Section --> */}
-        <VideoPopup1 />
+        {/* <VideoPopup1 /> */}
 
         {/* <!-- Why Choose Us Section --> */}
         <section class="why-chooseus-section">
@@ -533,80 +526,8 @@ class Index extends Component {
                     </h2>
                   </div>
                   <Tab.Container defaultActiveKey="first">
-                    <Nav
-                      variant="pills"
-                      className="nav nav-tabs tab-btn-style-one"
-                    >
-                      <Nav.Item>
-                        <Nav.Link eventKey="first">
-                          <span>Our Mission</span>
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="second">
-                          <span>Our Vission</span>
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="third">
-                          <span>Our Value</span>
-                        </Nav.Link>
-                      </Nav.Item>
-                    </Nav>
                     <Tab.Content className="tabs-content">
                       <Tab.Pane eventKey="first" className="fadeInUp animated">
-                        <div class="clearfix">
-                          <div class="image">
-                            <img
-                              src={require("../../assets/images/resource/image-4.jpg")}
-                              alt=""
-                            />
-                          </div>
-                          <div class="text">
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipisici
-                              ng elit, sed do eiusmod tempor incididunt ut labo
-                              re et dolore magna aliqua. Ut enim ad minim veni
-                              am, quis nostrud exercitation ullamco.
-                            </p>
-                            <p>
-                              Duis aute irure dolor in reprehenderit in
-                              voluptate velit esse cillum dolore eu fugiat nulla
-                              pariatur. Excepteur sint occaecat cupidatat non
-                              proident, sunt in culpa qui officia deserunt
-                              mollit anim id est laborum. Sed ut perspiciatis
-                              unde omnis iste natus error
-                            </p>
-                          </div>
-                        </div>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="second" className="fadeInUp animated">
-                        <div class="clearfix">
-                          <div class="image">
-                            <img
-                              src={require("../../assets/images/resource/image-4.jpg")}
-                              alt=""
-                            />
-                          </div>
-                          <div class="text">
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipisici
-                              ng elit, sed do eiusmod tempor incididunt ut labo
-                              re et dolore magna aliqua. Ut enim ad minim veni
-                              am, quis nostrud exercitation ullamco.
-                            </p>
-                            <p>
-                              Duis aute irure dolor in reprehenderit in
-                              voluptate velit esse cillum dolore eu fugiat nulla
-                              pariatur. Excepteur sint occaecat cupidatat non
-                              proident, sunt in culpa qui officia deserunt
-                              mollit anim id est laborum. Sed ut perspiciatis
-                              unde omnis iste natus error
-                            </p>
-                          </div>
-                        </div>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="third" className="fadeInUp animated">
                         <div class="clearfix">
                           <div class="image">
                             <img
@@ -657,7 +578,7 @@ class Index extends Component {
         </section>
 
         {/* <!-- Team Section --> */}
-        <section
+        {/* <section
           class="team-section"
           style={{ backgroundImage: "url(" + teambg1 + ")" }}
         >
@@ -667,7 +588,7 @@ class Index extends Component {
               <h2>Leadership Team</h2>
             </div>
             <div class="row">
-              {/* <!-- Team Block One --> */}
+             
               <div
                 class="col-lg-4 team-block-one wow fadeInUp"
                 data-wow-delay="200ms"
@@ -690,7 +611,7 @@ class Index extends Component {
                   </div>
                 </div>
               </div>
-              {/* <!-- Team Block One --> */}
+             
               <div
                 class="col-lg-4 team-block-one wow fadeInUp"
                 data-wow-delay="200ms"
@@ -713,7 +634,7 @@ class Index extends Component {
                   </div>
                 </div>
               </div>
-              {/* <!-- Team Block One --> */}
+             
               <div
                 class="col-lg-4 team-block-one wow fadeInUp"
                 data-wow-delay="200ms"
@@ -738,7 +659,7 @@ class Index extends Component {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* <!-- Contact Section --> */}
         <section class="contact-section">
@@ -895,7 +816,7 @@ class Index extends Component {
         </section>
 
         {/* <!-- News Section --> */}
-        <section class="news-section">
+        {/* <section class="news-section">
           <div
             class="sec-bg"
             style={{ backgroundImage: "url(" + newsbg1 + ")" }}
@@ -906,7 +827,7 @@ class Index extends Component {
               <h2>News From Resource</h2>
             </div>
             <div class="row">
-              {/* <!-- News Block One --> */}
+             
               <div
                 class="news-block-one col-lg-4 wow fadeInUp"
                 data-wow-delay="200ms"
@@ -948,7 +869,7 @@ class Index extends Component {
                   </div>
                 </div>
               </div>
-              {/* <!-- News Block One --> */}
+             
               <div
                 class="news-block-one col-lg-4 wow fadeInUp"
                 data-wow-delay="200ms"
@@ -989,7 +910,7 @@ class Index extends Component {
                   </div>
                 </div>
               </div>
-              {/* <!-- News Block One --> */}
+             
               <div
                 class="news-block-one col-lg-4 wow fadeInUp"
                 data-wow-delay="200ms"
@@ -1032,10 +953,10 @@ class Index extends Component {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* <!-- Award Section --> */}
-        <section class="award-section pt-0">
+        {/* <section class="award-section pt-0">
           <div class="year">2020</div>
           <div class="auto-container">
             <div class="sec-title text-center">
@@ -1123,7 +1044,7 @@ class Index extends Component {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <Footer />
       </>

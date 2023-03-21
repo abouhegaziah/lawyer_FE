@@ -60,7 +60,7 @@ class Menu extends Component {
               <Link to={"/#"}>Episodes</Link>
               <ul>
                 <li>
-                  <Link to={"/services-1"}>Episodes</Link>
+                  <Link to={"/episodes"}>Episodes</Link>
                 </li>
                 {localStorage.getItem("admin") && (
                   <li>

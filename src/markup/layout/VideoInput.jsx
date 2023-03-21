@@ -1,8 +1,7 @@
 import React from "react";
-import axios from "axios";
 
 export default function VideoInput(props) {
-  const { width, height } = props;
+  const { height } = props;
 
   const inputRef = React.useRef();
 

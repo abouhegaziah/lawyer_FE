@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import Menu from "./menu";
 import { Modal, Button, Form } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const options = [
   { value: "English", label: "English" },
@@ -100,7 +101,7 @@ class Header extends Component {
                       <div class="text">Phone Number</div>
 
                       <h4>
-                        <Link to={'/tel:+98787687676"'}>+987 876 876 76</Link>
+                        <Link to={'/tel:+201555599441"'}>+201555599441</Link>
                       </h4>
                     </div>
                     <div class="single-info">
@@ -109,8 +110,8 @@ class Header extends Component {
                       </div>
                       <div class="text">Email Address</div>
                       <h4>
-                        <Link to={"mailto:info@webmail.com"}>
-                          info@webmail.com
+                        <Link to={"mailto:afwmalaki@gmail.com"}>
+                          afwmalaki@gmail.com
                         </Link>
                       </h4>
                     </div>
@@ -140,24 +141,37 @@ class Header extends Component {
 
                   <ul class="social-links clearfix">
                     <li>
-                      <Link to={"/#"}>
+                      <a
+                        href={
+                          "https://web.facebook.com/afwmalaki/about/?ref=page_internal"
+                        }
+                      >
                         <span class="fab fa-facebook-f"></span>
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link to={"/#"}>
-                        <span class="fab fa-twitter"></span>
-                      </Link>
+                      <a href={"https://tiktok.com/@afwmalaki"}>
+                        <FontAwesomeIcon icon="fa-brands fa-tiktok" />
+                      </a>
                     </li>
                     <li>
-                      <Link to={"/#"}>
-                        <span class="fab fa-linkedin-in"></span>
-                      </Link>
+                      <a
+                        href={
+                          "https://www.youtube.com/channel/UC4cq9g3MSyM-5Jl4JRRRGRw"
+                        }
+                      >
+                        <span class="fab fa-youtube"></span>
+                      </a>
                     </li>
                     <li>
-                      <Link to={"/#"}>
-                        <span class="fab fa-pinterest-p"></span>
-                      </Link>
+                      <a href={"http://www.snapchat.com/add/afwmalaki"}>
+                        <span class="fab fa-snapchat"></span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href={"http://www.instagram.com/afwmalaki/"}>
+                        <span class="fab fa-instagram"></span>
+                      </a>
                     </li>
                   </ul>
                 </div>

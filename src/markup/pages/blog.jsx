@@ -5,9 +5,6 @@ import Footer from "../layout/footer";
 import axios from "axios";
 
 const aboutbg = require("./../../assets/images/background/image-11.jpg");
-const quotebg = require("./../../assets/images/background/image-17.jpg");
-const blogsbg = require("./../../assets/images/background/image-16.jpg");
-const addbg = require("./../../assets/images/background/image-15.jpg");
 
 class Blog extends Component {
   state = {
@@ -16,10 +13,15 @@ class Blog extends Component {
   };
 
   componentDidMount() {
-    axios.get(`https://project-sfj2.onrender.com/blog`).then((res) => {
-      console.log(res.data.response);
-      this.setState({ posts: res.data.response });
-    });
+    axios
+      .get(`http://localhost:4000/blog`)
+      .then((res) => {
+        console.log(res.data.response);
+        this.setState({ posts: res.data.response });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   render() {
     return (
