@@ -4,6 +4,7 @@ import Select from "react-select";
 import Menu from "./menu";
 import { Modal, Button, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import tik from "../../assets/images/tiktok.svg";
 
 const options = [
   { value: "English", label: "English" },
@@ -87,12 +88,12 @@ class Header extends Component {
                 </div>
 
                 <div class="top-middile">
-                  <div class="language">
+                  {/* <div class="language">
                     <span>Language:</span>
                     <form action="#" class="language-switcher">
                       <Select options={options} />
                     </form>
-                  </div>
+                  </div> */}
                   <div class="contact-info">
                     <div class="single-info">
                       <div class="icon-box">
@@ -146,12 +147,18 @@ class Header extends Component {
                           "https://web.facebook.com/afwmalaki/about/?ref=page_internal"
                         }
                       >
-                        <span class="fab fa-facebook-f"></span>
+                        <span
+                          style={{ width: "1vw" }}
+                          class="fab fa-facebook-f"
+                        ></span>
                       </a>
                     </li>
                     <li>
                       <a href={"https://tiktok.com/@afwmalaki"}>
-                        <FontAwesomeIcon icon="fa-brands fa-tiktok" />
+                        <i
+                          style={{ width: "2vw" }}
+                          class="fa-brands fa-tiktok"
+                        ></i>
                       </a>
                     </li>
                     <li>
@@ -160,17 +167,26 @@ class Header extends Component {
                           "https://www.youtube.com/channel/UC4cq9g3MSyM-5Jl4JRRRGRw"
                         }
                       >
-                        <span class="fab fa-youtube"></span>
+                        <span
+                          style={{ width: "1vw" }}
+                          class="fab fa-youtube"
+                        ></span>
                       </a>
                     </li>
                     <li>
                       <a href={"http://www.snapchat.com/add/afwmalaki"}>
-                        <span class="fab fa-snapchat"></span>
+                        <span
+                          style={{ width: "1vw" }}
+                          class="fab fa-snapchat"
+                        ></span>
                       </a>
                     </li>
                     <li>
                       <a href={"http://www.instagram.com/afwmalaki/"}>
-                        <span class="fab fa-instagram"></span>
+                        <span
+                          style={{ width: "1vw" }}
+                          class="fab fa-instagram"
+                        ></span>
                       </a>
                     </li>
                   </ul>

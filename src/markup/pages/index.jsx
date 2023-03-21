@@ -177,16 +177,28 @@ class Index extends Component {
                   <div class="sec-title">
                     <div class="sub-title">About Us</div>
                     <h2>
-                      We Work With <br />
-                      You To Address
+                      MR. <br />
+                      Lawyer
                     </h2>
                     <div class="text">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur.
+                      <p>
+                        With the month of Ramadan rapidly approaching us, the
+                        idea of the program A’afw Malaky had counsellor Ahmed el
+                        Shaer thinking as he had always longed to spread the
+                        feelings of justice, love and forgiveness around him.
+                      </p>
+                      <p>
+                        The program itself is Counsellor EL Shaer’s way for an
+                        ongoing charity for the soul of the late counsellor
+                        Karim Al-Shaer. A couple of years ago, after a great
+                        personal experience Counsellor EL Shaer found inner
+                        peace once more when faced with forgiveness from a
+                        family member, this has led him to reorganize his
+                        thoughts and come up with the finalised version of A’afw
+                        Malaky; where he can listen, discuss, help and arbitrate
+                        between other people to help them find forgiveness in
+                        their hearts and find inner peace just as he did.
+                      </p>
                     </div>
                   </div>
                   <div class="row">
@@ -521,8 +533,8 @@ class Index extends Component {
                   <div class="sec-title">
                     <div class="sub-title">Why Choose Us</div>
                     <h2>
-                      Why Should You <br />
-                      Choose Us ?
+                      Afw Malaki <br />
+                      Purpose !
                     </h2>
                   </div>
                   <Tab.Container defaultActiveKey="first">
@@ -531,24 +543,24 @@ class Index extends Component {
                         <div class="clearfix">
                           <div class="image">
                             <img
-                              src={require("../../assets/images/resource/image-4.jpg")}
+                              src={require("../../assets/images/WhatsApp Image 2023-03-02 at 4.59.59 PM copy.png")}
                               alt=""
+                              style={{ width: "6vw" }}
                             />
                           </div>
                           <div class="text">
                             <p>
-                              Lorem ipsum dolor sit amet, consectetur adipisici
-                              ng elit, sed do eiusmod tempor incididunt ut labo
-                              re et dolore magna aliqua. Ut enim ad minim veni
-                              am, quis nostrud exercitation ullamco.
-                            </p>
-                            <p>
-                              Duis aute irure dolor in reprehenderit in
-                              voluptate velit esse cillum dolore eu fugiat nulla
-                              pariatur. Excepteur sint occaecat cupidatat non
-                              proident, sunt in culpa qui officia deserunt
-                              mollit anim id est laborum. Sed ut perspiciatis
-                              unde omnis iste natus error
+                              The program itself is Counsellor EL Shaer’s way
+                              for an ongoing charity for the soul of the late
+                              counsellor Karim Al-Shaer. A few months ago, after
+                              a great personal experience Counsellor EL Shaer
+                              found inner peace once more when faced with
+                              forgiveness from a family member, this has led him
+                              to reorganize his thoughts and come up with the
+                              finalised version of A’afw Malaky; where he can
+                              listen, discuss, help and arbitrate between other
+                              people to help them find forgiveness in their
+                              hearts and find inner peace just as he did.
                             </p>
                           </div>
                         </div>
@@ -567,7 +579,7 @@ class Index extends Component {
                   </div>
                   <div class="image-two">
                     <img
-                      src={require("../../assets/images/resource/image-5.jpg")}
+                      src={require("../../assets/images/6X9A0396.00_00_20_08.Still001.jpg")}
                       alt=""
                     />
                   </div>
@@ -744,13 +756,8 @@ class Index extends Component {
                         <h3>Email Address</h3>
                         <ul>
                           <li>
-                            <Link to={"/mailto:info@webmail.com"}>
-                              info@webmail.com
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to={"/mailto:jobs@exampleco.com"}>
-                              jobs@exampleco.com
+                            <Link to={"/mailto:afwmalaki@gmail.com"}>
+                              afwmalaki@gmail.com
                             </Link>
                           </li>
                         </ul>
@@ -765,12 +772,7 @@ class Index extends Component {
                         <ul>
                           <li>
                             <Link to={"/tel:+8976765654654"}>
-                              +897 676 5654 654
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to={"/tel:+908(097)56476576"}>
-                              +908(097) 564 765 76
+                              +201555599441
                             </Link>
                           </li>
                         </ul>
@@ -799,11 +801,6 @@ class Index extends Component {
                         <ul>
                           <li>
                             <Link to={"/http://example.com/"}>example.com</Link>
-                          </li>
-                          <li>
-                            <Link to={"/http://jobs.example.com/"}>
-                              jobs.example.com
-                            </Link>
                           </li>
                         </ul>
                       </div>
