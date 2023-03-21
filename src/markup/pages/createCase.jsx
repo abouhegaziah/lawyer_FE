@@ -24,7 +24,7 @@ class CreateCase extends Component {
   submitCase = () => {
     console.log(this.state);
     axios
-      .post("http://localhost:4000/case/addCase", this.state)
+      .post("https://project-sfj2.onrender.com/case/addCase", this.state)
       .then((response) => {
         console.log(response.data);
         this.setState({ show: true });
@@ -37,7 +37,7 @@ class CreateCase extends Component {
   handleShow = () => this.setState({ show: true });
 
   //   componentDidMount() {
-  //     axios.get(`http://localhost:4000/case`).then((res) => {
+  //     axios.get(`https://project-sfj2.onrender.com/case`).then((res) => {
   //       console.log(res.data);
   //     });
   //   }

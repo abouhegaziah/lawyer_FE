@@ -18,7 +18,7 @@ export default function ShowEp(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/episode`)
+      .get(`https://project-sfj2.onrender.com/episode`)
       .then((res) => {
         console.log(res.data.response);
         setEps(res.data.response);

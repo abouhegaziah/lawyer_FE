@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.6038f9a0.chunk.css",
-    "main.js": "/static/js/main.b5310b5e.chunk.js",
-    "main.js.map": "/static/js/main.b5310b5e.chunk.js.map",
+    "main.js": "/static/js/main.7b087139.chunk.js",
+    "main.js.map": "/static/js/main.7b087139.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.76f6b1ca.js",
     "runtime-main.js.map": "/static/js/runtime-main.76f6b1ca.js.map",
     "static/css/2.03a0228a.chunk.css": "/static/css/2.03a0228a.chunk.css",
-    "static/js/2.ab1de8c5.chunk.js": "/static/js/2.ab1de8c5.chunk.js",
-    "static/js/2.ab1de8c5.chunk.js.map": "/static/js/2.ab1de8c5.chunk.js.map",
+    "static/js/2.7b609644.chunk.js": "/static/js/2.7b609644.chunk.js",
+    "static/js/2.7b609644.chunk.js.map": "/static/js/2.7b609644.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.f706a1bc821ae2cab7f49711763b103d.js": "/precache-manifest.f706a1bc821ae2cab7f49711763b103d.js",
+    "precache-manifest.2a713206556c6f416d4967294effc041.js": "/precache-manifest.2a713206556c6f416d4967294effc041.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.03a0228a.chunk.css.map": "/static/css/2.03a0228a.chunk.css.map",
     "static/css/main.6038f9a0.chunk.css.map": "/static/css/main.6038f9a0.chunk.css.map",
-    "static/js/2.ab1de8c5.chunk.js.LICENSE.txt": "/static/js/2.ab1de8c5.chunk.js.LICENSE.txt",
+    "static/js/2.7b609644.chunk.js.LICENSE.txt": "/static/js/2.7b609644.chunk.js.LICENSE.txt",
     "static/media/1.jpg": "/static/media/1.11d0fb35.jpg",
     "static/media/11.jpg": "/static/media/11.9a012589.jpg",
     "static/media/12.jpg": "/static/media/12.db982374.jpg",
@@ -111,13 +111,14 @@
     "static/media/team-4.jpg": "/static/media/team-4.ee707ef2.jpg",
     "static/media/team-5.jpg": "/static/media/team-5.d67d947d.jpg",
     "static/media/team-6.jpg": "/static/media/team-6.3f9dc065.jpg",
-    "static/media/team-7.jpg": "/static/media/team-7.1380c1f1.jpg"
+    "static/media/team-7.jpg": "/static/media/team-7.1380c1f1.jpg",
+    "static/media/tiktok.svg": "/static/media/tiktok.2c4d7fe6.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.76f6b1ca.js",
     "static/css/2.03a0228a.chunk.css",
-    "static/js/2.ab1de8c5.chunk.js",
+    "static/js/2.7b609644.chunk.js",
     "static/css/main.6038f9a0.chunk.css",
-    "static/js/main.b5310b5e.chunk.js"
+    "static/js/main.7b087139.chunk.js"
   ]
 }

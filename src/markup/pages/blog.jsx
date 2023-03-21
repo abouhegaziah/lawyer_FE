@@ -14,7 +14,7 @@ class Blog extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:4000/blog`)
+      .get(`https://project-sfj2.onrender.com/blog`)
       .then((res) => {
         console.log(res.data.response);
         this.setState({ posts: res.data.response });

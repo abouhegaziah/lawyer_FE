@@ -26,7 +26,7 @@ class Index extends Component {
   };
   componentDidMount() {
     axios
-      .get(`http://localhost:4000/episode/latest`)
+      .get(`https://project-sfj2.onrender.com/episode/latest`)
       .then((res) => {
         console.log(res.data.response);
         let temp = [];
