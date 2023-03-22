@@ -238,3 +238,41 @@ code {
 .slick-slide.slick-active {
   width: 635px !important;
 }
+.mylang > img {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  scale: 0.8;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.mylang > .active {
+  scale: 1 !important;
+  opacity: 1 !important;
+}
+/* .theme_carousel
+  > .slick-list
+  > .slick-track
+  > .slick-slide.slick-active
+  ~ .slick-slide.slick-active {
+  opacity: 1 !important;
+  filter: none !important;
+} */
+.sub-title.ar:before {
+  left: unset !important;
+  right: 0;
+}
+input.ar {
+  direction: rtl !important;
+}
+i.ar {
+  left: 30px !important;
+  right: unset !important;
+}
+textarea.ar {
+  direction: rtl !important;
+}
+.text {
+  word-wrap: break-word;
+  max-width: 100%;
+}

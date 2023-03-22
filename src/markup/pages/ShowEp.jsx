@@ -38,18 +38,41 @@ export default function ShowEp(props) {
         <div class="bottom-rotten-curve alternate"></div>
 
         <div class="auto-container">
-          <h1>Episodes</h1>
+          <h1>
+            {localStorage.getItem("lang") === "english"
+              ? "Episodes"
+              : "الحلقات"}
+          </h1>
           <ul class="bread-crumb clearfix">
-            <li>
-              <Link to={"/#"}>Home</Link>
-            </li>
-            <li class="active">Episodes</li>
+            {localStorage.getItem("lang") === "english" ? (
+              <>
+                <li>
+                  <Link to={"/#"}>Home</Link>
+                </li>
+                <li class="active">Episodes</li>
+              </>
+            ) : (
+              <>
+                <li class="active">الحلقات</li>
+                <li>
+                  <Link to={"/#"}>الرئيسيه</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </section>
       <section class="news-section">
         <div class="auto-container">
-          <div class="row">
+          <div
+            class="row"
+            style={{
+              justifyContent:
+                localStorage.getItem("lang") === "english"
+                  ? "flex-start"
+                  : "flex-end",
+            }}
+          >
             {eps &&
               eps.map((e) => {
                 const monthNames = [
@@ -65,6 +88,20 @@ export default function ShowEp(props) {
                   "October",
                   "November",
                   "December",
+                ];
+                const month_ar = [
+                  "يناير",
+                  "فبراير",
+                  "مارس",
+                  "إبريل",
+                  "مايو",
+                  "يونيو",
+                  "يوليو",
+                  "أغسطس",
+                  "سبتمبر",
+                  "أكتوبر",
+                  "نوفمبر",
+                  "ديسمبر",
                 ];
                 const d = new Date(e.createdAt);
                 console.log(d);
@@ -93,7 +130,27 @@ export default function ShowEp(props) {
                         {hover === e._id && <div className="videoOver"></div>}
                         <img src={e.image} alt="" />
                       </div>
-                      <div class="lower-content">
+                      <div
+                        class="lower-content"
+                        style={{
+                          display:
+                            localStorage.getItem("lang") === "english"
+                              ? "block"
+                              : "flex",
+                          flexDirection:
+                            localStorage.getItem("lang") === "english"
+                              ? ""
+                              : "column",
+                          textAlign:
+                            localStorage.getItem("lang") === "english"
+                              ? "start"
+                              : "end",
+                          alignItems:
+                            localStorage.getItem("lang") === "english"
+                              ? "flex-start"
+                              : "flex-end",
+                        }}
+                      >
                         <div class="category" style={{ zIndex: "11" }}>
                           {e.number}
                         </div>
@@ -101,13 +158,20 @@ export default function ShowEp(props) {
                           <li>
                             <Link to={"/#"}>
                               <i class="far fa-calendar-alt"></i> {d.getDate()}
-                              th {monthNames[d.getMonth()]} {"  "}
+                              th{" "}
+                              {localStorage.getItem("lang") === "english"
+                                ? monthNames[d.getMonth()]
+                                : month_ar[d.getMonth()]}{" "}
+                              {"  "}
                               {d.getFullYear()}
                             </Link>
                           </li>
                           <li>
                             <Link to={"/#"}>
-                              <i class="far fa-user"></i>By Admin
+                              <i class="far fa-user"></i>{" "}
+                              {localStorage.getItem("lang") === "english"
+                                ? "By Admin"
+                                : "المسؤل"}
                             </Link>
                           </li>
                         </ul>

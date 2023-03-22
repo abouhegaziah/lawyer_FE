@@ -8,7 +8,15 @@ class Footer extends Component {
         <footer class="main-footer">
           <div class="auto-container">
             <div class="widgets-section">
-              <div class="row clearfix">
+              <div
+                class="row clearfix"
+                style={{
+                  flexDirection:
+                    localStorage.getItem("lang") === "english"
+                      ? "row"
+                      : "row-reverse",
+                }}
+              >
                 <div class="column col-lg-4">
                   <div class="footer-widget logo-widget">
                     <div class="widget-content">
@@ -22,10 +30,23 @@ class Footer extends Component {
                         </Link>
                       </div>
                       <div class="text">
-                        Lorem ipsum dolor sit amet, consect etur adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip.
+                        {localStorage.getItem("lang") === "english" ? (
+                          <>
+                            {" "}
+                            Lorem ipsum dolor sit amet, consect etur adipisicing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut
+                            aliquip.
+                          </>
+                        ) : (
+                          <>
+                            من المهم الاعتناء بالمريض ، والنتيجة ستكون دهنية
+                            ولكن نفس الشيء حدث في نفس الوقت مع المخاض و مع بعض
+                            الألم الشديد. للوصول إلى أدق التفاصيل ، من لا تمرين
+                            في أي عمل إلا البعض
+                          </>
+                        )}
                       </div>
                       <ul class="social-links clearfix">
                         <li>
@@ -55,44 +76,90 @@ class Footer extends Component {
 
                 <div class="column col-lg-4">
                   <div class="footer-widget links-widget">
-                    <div class="widget-content">
-                      <h3>Links</h3>
+                    <div
+                      class="widget-content"
+                      style={{
+                        textAlign:
+                          localStorage.getItem("lang") === "english"
+                            ? "start"
+                            : "end",
+                      }}
+                    >
+                      <h3>
+                        {" "}
+                        {localStorage.getItem("lang") === "english"
+                          ? "Links"
+                          : "الروابط"}
+                      </h3>
                       <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                           <ul>
                             <li>
-                              <Link to={"/#"}>Home</Link>
+                              <Link to={"/#"}>
+                                {localStorage.getItem("lang") === "english"
+                                  ? "Home"
+                                  : " الرئيسية"}
+                              </Link>
                             </li>
                             <li>
-                              <Link to={"/#"}>About</Link>
+                              <Link to={"/about"}>
+                                {" "}
+                                {localStorage.getItem("lang") === "english"
+                                  ? "About Us"
+                                  : "معلومات عنا"}
+                              </Link>
                             </li>
                             <li>
-                              <Link to={"/#"}>Services</Link>
+                              <Link
+                                to={"/cases"}
+                                style={{
+                                  textAlign:
+                                    localStorage.getItem("lang") === "english"
+                                      ? "start"
+                                      : "end",
+                                }}
+                              >
+                                {localStorage.getItem("lang") === "english"
+                                  ? "Cases"
+                                  : "القضايا "}
+                              </Link>
                             </li>
                             <li>
-                              <Link to={"/#"}>Portfolio</Link>
+                              <Link
+                                to={"/blog-standard"}
+                                style={{
+                                  textAlign:
+                                    localStorage.getItem("lang") === "english"
+                                      ? "start"
+                                      : "end",
+                                }}
+                              >
+                                {localStorage.getItem("lang") === "english"
+                                  ? "Blog"
+                                  : "المدونة"}
+                              </Link>
                             </li>
                             <li>
-                              <Link to={"/#"}>Pricing</Link>
+                              <Link
+                                to={"/episodes"}
+                                style={{
+                                  textAlign:
+                                    localStorage.getItem("lang") === "english"
+                                      ? "start"
+                                      : "end",
+                                }}
+                              >
+                                {localStorage.getItem("lang") === "english"
+                                  ? "Episodes"
+                                  : "الحلقات "}
+                              </Link>
                             </li>
                             <li>
-                              <Link to={"/#"}>Contact</Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-md-6">
-                          <ul>
-                            <li>
-                              <Link to={"/#"}>News</Link>
-                            </li>
-                            <li>
-                              <Link to={"/#"}>Press Release</Link>
-                            </li>
-                            <li>
-                              <Link to={"/#"}>Case Study</Link>
-                            </li>
-                            <li>
-                              <Link to={"/#"}>Terms</Link>
+                              <Link to={"/contact"}>
+                                {localStorage.getItem("lang") === "english"
+                                  ? "Contact Us"
+                                  : "اتصل بنا"}
+                              </Link>
                             </li>
                           </ul>
                         </div>
@@ -101,7 +168,7 @@ class Footer extends Component {
                   </div>
                 </div>
 
-                <div class="column col-lg-4">
+                {/* <div class="column col-lg-4">
                   <div class="footer-widget instagram-widget">
                     <h3>Photo Showcase</h3>
                     <div class="inner-box">
@@ -254,7 +321,7 @@ class Footer extends Component {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -298,7 +365,7 @@ class Footer extends Component {
                       color: "#fff",
                     }}
                   >
-                    copyright &copy; {new Date().getFullYear()} by{" "}
+                    Copyright &copy; {new Date().getFullYear()} by{" "}
                     <span>
                       {" "}
                       <a

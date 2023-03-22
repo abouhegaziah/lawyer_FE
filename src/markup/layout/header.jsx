@@ -4,7 +4,9 @@ import Select from "react-select";
 import Menu from "./menu";
 import { Modal, Button, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import tik from "../../assets/images/tiktok.svg";
+import tik from "../../assets/images/download.svg";
+import eng from "../../assets/images/eng.png";
+import arabic from "../../assets/images/egypt.svg.png";
 
 const options = [
   { value: "English", label: "English" },
@@ -20,6 +22,9 @@ class Header extends Component {
     pass: "",
     admin: false,
     msg: "",
+    lang: localStorage.getItem("lang")
+      ? localStorage.getItem("lang")
+      : "arabic",
   };
 
   componentDidMount() {
@@ -73,7 +78,13 @@ class Header extends Component {
         <header class={scrolled ? "main-header fixed-header" : "main-header"}>
           <div class="header-top">
             <div class="auto-container">
-              <div class="inner">
+              <div
+                class="inner"
+                style={{
+                  flexDirection:
+                    this.state.lang === "english" ? "row" : "row-reverse",
+                }}
+              >
                 <div class="top-left" style={{ width: "15%" }}>
                   <div class="logo-box">
                     <div class="logo">
@@ -87,7 +98,13 @@ class Header extends Component {
                   </div>
                 </div>
 
-                <div class="top-middile">
+                <div
+                  class="top-middile"
+                  style={{
+                    flexDirection:
+                      this.state.lang === "english" ? "row" : "row-reverse",
+                  }}
+                >
                   {/* <div class="language">
                     <span>Language:</span>
                     <form action="#" class="language-switcher">
@@ -96,32 +113,91 @@ class Header extends Component {
                   </div> */}
                   <div class="contact-info">
                     <div class="single-info">
-                      <div class="icon-box">
+                      <div
+                        class="icon-box"
+                        style={{
+                          left: this.state.lang === "english" ? "0" : "105%",
+                        }}
+                      >
                         <i class="flaticon-call-1"></i>
                       </div>
-                      <div class="text">Phone Number</div>
+                      <div
+                        style={{
+                          textAlign:
+                            this.state.lang === "english" ? "start" : "end",
+                        }}
+                      >
+                        <div class="text">
+                          {this.state.lang === "english"
+                            ? "Phone Number"
+                            : "رقم التليفون"}
+                        </div>
 
-                      <h4>
-                        <Link to={'/tel:+201555599441"'}>+201555599441</Link>
-                      </h4>
+                        <h4>
+                          <Link to={'/tel:+201555599441"'}>+201555599441</Link>
+                        </h4>
+                      </div>
                     </div>
                     <div class="single-info">
-                      <div class="icon-box">
+                      <div
+                        class="icon-box"
+                        style={{
+                          left: this.state.lang === "english" ? "0" : "105%",
+                        }}
+                      >
                         <i class="flaticon-email-4"></i>
                       </div>
-                      <div class="text">Email Address</div>
-                      <h4>
-                        <Link to={"mailto:afwmalaki@gmail.com"}>
-                          afwmalaki@gmail.com
-                        </Link>
-                      </h4>
+                      <div
+                        style={{
+                          textAlign:
+                            this.state.lang === "english" ? "start" : "end",
+                        }}
+                      >
+                        <div class="text">
+                          {this.state.lang === "english"
+                            ? "Email Address"
+                            : "البريد الإلكتروني"}
+                        </div>
+                        <h4>
+                          <Link to={"mailto:afwmalaki@gmail.com"}>
+                            afwmalaki@gmail.com
+                          </Link>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="language">
+                    <div className="mylang">
+                      <img
+                        className={
+                          this.state.lang === "english" ? "active" : ""
+                        }
+                        src={eng}
+                        style={{ marginRight: "1vw" }}
+                        onClick={() => {
+                          this.setState({ lang: "english" });
+                          localStorage.setItem("lang", "english");
+                          window.location.reload(false);
+                        }}
+                      />
+                      <img
+                        className={this.state.lang === "arabic" ? "active" : ""}
+                        onClick={() => {
+                          this.setState({ lang: "arabic" });
+                          localStorage.setItem("lang", "arabic");
+                          window.location.reload(false);
+                        }}
+                        src={arabic}
+                      />
                     </div>
                   </div>
                 </div>
 
                 <div class="top-right" onClick={this.handleShow}>
                   <Link to="/#" class="theme-btn btn-style-two">
-                    <span class="btn-title">Admin ?</span>
+                    <span class="btn-title">
+                      {this.state.lang === "english" ? "Admin ?" : "إدارى ؟"}
+                    </span>
                   </Link>
                 </div>
               </div>
@@ -136,11 +212,21 @@ class Header extends Component {
                     <span class="icon fal fa-bars"></span>
                   </div>
 
-                  <nav class="main-menu navbar-expand-md navbar-light">
+                  <nav
+                    class="main-menu navbar-expand-md navbar-light"
+                    style={{
+                      float: this.state.lang === "english" ? "left" : "right",
+                    }}
+                  >
                     <Menu />
                   </nav>
 
-                  <ul class="social-links clearfix">
+                  <ul
+                    class="social-links clearfix"
+                    style={{
+                      float: this.state.lang === "english" ? "right" : "left",
+                    }}
+                  >
                     <li>
                       <a
                         href={
@@ -148,17 +234,17 @@ class Header extends Component {
                         }
                       >
                         <span
-                          style={{ width: "1vw" }}
                           class="fab fa-facebook-f"
+                          style={{ fontSize: "1vw" }}
                         ></span>
                       </a>
                     </li>
                     <li>
                       <a href={"https://tiktok.com/@afwmalaki"}>
-                        <i
-                          style={{ width: "2vw" }}
-                          class="fa-brands fa-tiktok"
-                        ></i>
+                        <img
+                          src={tik}
+                          style={{ width: "1vw", height: "1vw" }}
+                        />
                       </a>
                     </li>
                     <li>
@@ -168,7 +254,7 @@ class Header extends Component {
                         }
                       >
                         <span
-                          style={{ width: "1vw" }}
+                          style={{ fontSize: "1vw" }}
                           class="fab fa-youtube"
                         ></span>
                       </a>
@@ -176,7 +262,7 @@ class Header extends Component {
                     <li>
                       <a href={"http://www.snapchat.com/add/afwmalaki"}>
                         <span
-                          style={{ width: "1vw" }}
+                          style={{ fontSize: "1vw" }}
                           class="fab fa-snapchat"
                         ></span>
                       </a>
@@ -184,7 +270,7 @@ class Header extends Component {
                     <li>
                       <a href={"http://www.instagram.com/afwmalaki/"}>
                         <span
-                          style={{ width: "1vw" }}
+                          style={{ fontSize: "1vw" }}
                           class="fab fa-instagram"
                         ></span>
                       </a>

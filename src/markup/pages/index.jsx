@@ -25,6 +25,7 @@ class Index extends Component {
     latestEps: null,
   };
   componentDidMount() {
+    if (!localStorage.getItem("lang")) localStorage.setItem("lang", "arabic");
     axios
       .get(`https://project-sfj2.onrender.com/episode/latest`)
       .then((res) => {
@@ -118,18 +119,63 @@ class Index extends Component {
               height: "900px",
             }}
           >
-            <div className="inner">
-              <h1>Making Your Business Idea</h1>
+            <div
+              className="inner"
+              style={{
+                display:
+                  localStorage.getItem("lang") === "english" ? "" : "flex",
+                flexDirection: "column",
+                alignItems:
+                  localStorage.getItem("lang") === "english" ? "" : "flex-end",
+              }}
+            >
+              <h1>
+                {localStorage.getItem("lang") === "english"
+                  ? "Making Your Business Idea"
+                  : "إصنع فكرة عملك"}
+              </h1>
               <h2>
-                Afw <span>Malaki </span>
+                {localStorage.getItem("lang") === "english" ? "Afw" : "عفو"}{" "}
+                <span>
+                  {localStorage.getItem("lang") === "english"
+                    ? "Malaki"
+                    : "ملكى  "}{" "}
+                </span>
               </h2>
-              <div class="text">
-                Our company is one of the world’s leading management consulting
-                firms. Get in touch here asap.
+              <div
+                class="text"
+                style={{
+                  paddingRight:
+                    localStorage.getItem("lang") === "english" ? "700px" : "0",
+                  paddingTop:
+                    localStorage.getItem("lang") === "english"
+                      ? "unset"
+                      : "35px",
+                }}
+              >
+                {localStorage.getItem("lang") === "english"
+                  ? "listen, discuss, help and arbitrate with each other to find forgiveness in our hearts and find inner peace."
+                  : " .الاستماع والمناقشة والمساعدة والتحكيم بين الآخرين لمساعدتهم على العثور على المغفرة في قلوبهم وإيجاد السلام الداخلي"}
               </div>
               <div class="btn-box">
-                <Link to={"/create-case"} class="theme-btn btn-style-one">
-                  <span class="btn-title">-- Register Case--</span>
+                <Link
+                  to={"/create-case"}
+                  class="theme-btn btn-style-one"
+                  style={{
+                    width:
+                      localStorage.getItem("lang") === "english"
+                        ? "20%"
+                        : "unset",
+                  }}
+                >
+                  <span
+                    class="btn-title"
+                    style={{ textAlign: "center", fontSize: "1.4vw" }}
+                  >
+                    {localStorage.getItem("lang") === "english"
+                      ? "  -- Register Case--"
+                      : "-- إنشاء قضية -- "}
+                  </span>
                 </Link>
               </div>
             </div>
@@ -140,7 +186,9 @@ class Index extends Component {
         {/* <Carousel /> */}
         <Container style={{ marginBottom: "40px", marginTop: "20px" }}>
           <h1 style={{ textAlign: "center", fontWeight: "bold" }}>
-            LATEST EPISODES
+            {localStorage.getItem("lang") === "english"
+              ? "LATEST EPISODES"
+              : "أحدث الحلقات"}
           </h1>
           {this.state.latestEps && <Verena data={this.state.latestEps} />}
         </Container>
@@ -148,7 +196,15 @@ class Index extends Component {
         {/* <!-- About Section --> */}
         <section class="about-section">
           <div class="auto-container">
-            <div class="row align-items-center">
+            <div
+              class="row align-items-center"
+              style={{
+                flexDirection:
+                  localStorage.getItem("lang") === "english"
+                    ? "row"
+                    : "row-reverse",
+              }}
+            >
               <div class="col-lg-6">
                 <div class="image-wrapper">
                   <div class="image-one">
@@ -174,55 +230,139 @@ class Index extends Component {
               </div>
               <div class="col-lg-6">
                 <div class="content-box">
-                  <div class="sec-title">
-                    <div class="sub-title">About Us</div>
+                  <div
+                    class="sec-title"
+                    style={{
+                      textAlign:
+                        localStorage.getItem("lang") === "english"
+                          ? "start"
+                          : "end",
+                    }}
+                  >
+                    <div
+                      class={`sub-title ${
+                        localStorage.getItem("lang") === "arabic" && "ar"
+                      }`}
+                      style={{
+                        paddingRight:
+                          localStorage.getItem("lang") === "english"
+                            ? "0"
+                            : "70px",
+                      }}
+                    >
+                      {localStorage.getItem("lang") === "english"
+                        ? "About Us"
+                        : "معلومات عنا"}
+                    </div>
                     <h2>
-                      MR. <br />
-                      Lawyer
+                      {localStorage.getItem("lang") === "english"
+                        ? "MR."
+                        : "السيد"}{" "}
+                      <br />
+                      {localStorage.getItem("lang") === "english"
+                        ? "Lawyer"
+                        : "المحامى"}
                     </h2>
                     <div class="text">
                       <p>
-                        With the month of Ramadan rapidly approaching us, the
-                        idea of the program A’afw Malaky had counsellor Ahmed el
-                        Shaer thinking as he had always longed to spread the
-                        feelings of justice, love and forgiveness around him.
+                        {localStorage.getItem("lang") === "english" ? (
+                          <>
+                            {" "}
+                            With the month of Ramadan rapidly approaching us,
+                            the idea of the program A’afw Malaky had counsellor
+                            Ahmed el Shaer thinking as he had always longed to
+                            spread the feelings of justice, love and forgiveness
+                            around him.
+                          </>
+                        ) : (
+                          <>
+                            .مع اقتراب شهر رمضان بسرعة، كانت فكرة برنامج “عفو
+                            ملكي” يفكر فيها المستشار أحمد الشاعر لأنه كان يتوق
+                            دائما إلى نشر مشاعر العدل والمحبة والتسامح من حوله.
+                          </>
+                        )}
                       </p>
                       <p>
-                        The program itself is Counsellor EL Shaer’s way for an
-                        ongoing charity for the soul of the late counsellor
-                        Karim Al-Shaer. A couple of years ago, after a great
-                        personal experience Counsellor EL Shaer found inner
-                        peace once more when faced with forgiveness from a
-                        family member, this has led him to reorganize his
-                        thoughts and come up with the finalised version of A’afw
-                        Malaky; where he can listen, discuss, help and arbitrate
-                        between other people to help them find forgiveness in
-                        their hearts and find inner peace just as he did.
+                        {localStorage.getItem("lang") === "english" ? (
+                          <>
+                            {" "}
+                            The program itself is Counsellor EL Shaer’s way for
+                            an ongoing charity for the soul of the late
+                            counsellor Karim Al-Shaer. A couple of years ago,
+                            after a great personal experience Counsellor EL
+                            Shaer found inner peace once more when faced with
+                            forgiveness from a family member, this has led him
+                            to reorganize his thoughts and come up with the
+                            finalised version of A’afw Malaky; where he can
+                            listen, discuss, help and arbitrate between other
+                            people to help them find forgiveness in their hearts
+                            and find inner peace just as he did.
+                          </>
+                        ) : (
+                          <>
+                            البرنامج نفسه هو صدقة جارية على روح المستشار الراحل
+                            كريم الشاعر. قبل عامين ، بعد تجربة شخصية رائعة ، وجد
+                            المستشار أحمد الشاعر السلام الداخلي مرة أخرى عندما
+                            واجه المغفرة من أحد أفراد الأسرة ، مما دفعه إلى
+                            إعادة تنظيم أفكاره والتوصل إلى النسخة النهائية من
+                            "عفو ملكي" حيث يمكنه الاستماع والمناقشة والمساعدة
+                            والتحكيم بين الآخرين لمساعدتهم على العثور على
+                            المغفرة في قلوبهم وإيجاد السلام الداخلي تماما كما فع
+                          </>
+                        )}
                       </p>
                     </div>
                   </div>
                   <div class="row">
                     <div class="info-column col-md-6">
-                      <div class="icon-box">
+                      <div
+                        class="icon-box"
+                        style={{
+                          textAlign:
+                            localStorage.getItem("lang") === "english"
+                              ? "start"
+                              : "end",
+                          paddingRight:
+                            localStorage.getItem("lang") === "english"
+                              ? ""
+                              : "20%",
+                        }}
+                      >
                         <div class="icon">
                           <img
                             src={require("../../assets/images/icons/icon-1.png")}
                             alt=""
                           />
                         </div>
-                        <h5>Phone Number</h5>
+                        <h5>
+                          {localStorage.getItem("lang") === "english"
+                            ? "Phone Number"
+                            : "رقم التليفون"}
+                        </h5>
                         <h2>+201555599441</h2>
                       </div>
                     </div>
                     <div class="info-column col-md-6">
-                      <div class="icon-box">
+                      <div
+                        class="icon-box"
+                        style={{
+                          textAlign:
+                            localStorage.getItem("lang") === "english"
+                              ? "start"
+                              : "end",
+                        }}
+                      >
                         <div class="icon">
                           <img
                             src={require("../../assets/images/icons/icon-2.png")}
                             alt=""
                           />
                         </div>
-                        <h5>Email Address</h5>
+                        <h5>
+                          {localStorage.getItem("lang") === "english"
+                            ? "Email Address"
+                            : "البريد الإلكتروني"}
+                        </h5>
                         <h2>afwmalaki@gmail</h2>
                       </div>
                     </div>
@@ -527,40 +667,94 @@ class Index extends Component {
         {/* <!-- Why Choose Us Section --> */}
         <section class="why-chooseus-section">
           <div class="auto-container">
-            <div class="row align-items-center">
+            <div
+              class="row align-items-center"
+              style={{
+                flexDirection:
+                  localStorage.getItem("lang") === "english"
+                    ? "row"
+                    : "row-reverse",
+              }}
+            >
               <div class="col-lg-6">
                 <div class="content-box">
-                  <div class="sec-title">
-                    <div class="sub-title">Why Choose Us</div>
+                  <div
+                    class="sec-title"
+                    style={{
+                      textAlign:
+                        localStorage.getItem("lang") === "english"
+                          ? "start"
+                          : "end",
+                    }}
+                  >
+                    <div
+                      class={`sub-title ${
+                        localStorage.getItem("lang") === "arabic" && "ar"
+                      }`}
+                      style={{
+                        paddingRight:
+                          localStorage.getItem("lang") === "english"
+                            ? "0"
+                            : "70px",
+                      }}
+                    >
+                      {localStorage.getItem("lang") === "english"
+                        ? "Why Choose Us"
+                        : "لماذا تخترتنا"}
+                    </div>
                     <h2>
-                      Afw Malaki <br />
-                      Purpose !
+                      {localStorage.getItem("lang") === "english"
+                        ? " Afw Malaki"
+                        : "غاية "}
+                      <br />
+                      {localStorage.getItem("lang") === "english"
+                        ? "Purpose ! "
+                        : "!عفو ملكى"}{" "}
                     </h2>
                   </div>
                   <Tab.Container defaultActiveKey="first">
                     <Tab.Content className="tabs-content">
                       <Tab.Pane eventKey="first" className="fadeInUp animated">
                         <div class="clearfix">
-                          <div class="image">
-                            <img
-                              src={require("../../assets/images/WhatsApp Image 2023-03-02 at 4.59.59 PM copy.png")}
-                              alt=""
-                              style={{ width: "6vw" }}
-                            />
-                          </div>
-                          <div class="text">
+                          <div
+                            class="text"
+                            style={{
+                              textAlign:
+                                localStorage.getItem("lang") === "english"
+                                  ? "start"
+                                  : "end",
+                            }}
+                          >
                             <p>
-                              The program itself is Counsellor EL Shaer’s way
-                              for an ongoing charity for the soul of the late
-                              counsellor Karim Al-Shaer. A few months ago, after
-                              a great personal experience Counsellor EL Shaer
-                              found inner peace once more when faced with
-                              forgiveness from a family member, this has led him
-                              to reorganize his thoughts and come up with the
-                              finalised version of A’afw Malaky; where he can
-                              listen, discuss, help and arbitrate between other
-                              people to help them find forgiveness in their
-                              hearts and find inner peace just as he did.
+                              {localStorage.getItem("lang") === "english" ? (
+                                <>
+                                  {" "}
+                                  The program itself is Counsellor EL Shaer’s
+                                  way for an ongoing charity for the soul of the
+                                  late counsellor Karim Al-Shaer. A few months
+                                  ago, after a great personal experience
+                                  Counsellor EL Shaer found inner peace once
+                                  more when faced with forgiveness from a family
+                                  member, this has led him to reorganize his
+                                  thoughts and come up with the finalised
+                                  version of A’afw Malaky; where he can listen,
+                                  discuss, help and arbitrate between other
+                                  people to help them find forgiveness in their
+                                  hearts and find inner peace just as he did.
+                                </>
+                              ) : (
+                                <>
+                                  البرنامج نفسه هو صدقة جارية على روح المستشار
+                                  الراحل كريم الشاعر. قبل عامين ، بعد تجربة
+                                  شخصية رائعة ، وجد المستشار أحمد الشاعر السلام
+                                  الداخلي مرة أخرى عندما واجه المغفرة من أحد
+                                  أفراد الأسرة ، مما دفعه إلى إعادة تنظيم أفكاره
+                                  والتوصل إلى النسخة النهائية من "عفو ملكي" حيث
+                                  يمكنه الاستماع والمناقشة والمساعدة والتحكيم
+                                  بين الآخرين لمساعدتهم على العثور على المغفرة
+                                  في قلوبهم وإيجاد السلام الداخلي تماما كما فعل.
+                                </>
+                              )}
                             </p>
                           </div>
                         </div>
@@ -676,52 +870,148 @@ class Index extends Component {
         {/* <!-- Contact Section --> */}
         <section class="contact-section">
           <div class="auto-container">
-            <div class="row">
+            <div
+              class="row"
+              style={{
+                flexDirection:
+                  localStorage.getItem("lang") === "english"
+                    ? "row"
+                    : "row-reverse",
+              }}
+            >
               <div class="col-lg-6">
-                <div class="sec-title">
-                  <div class="sub-title">Write Here</div>
-                  <h2>Get In Touch</h2>
+                <div
+                  class="sec-title"
+                  style={{
+                    textAlign:
+                      localStorage.getItem("lang") === "english"
+                        ? "start"
+                        : "end",
+                  }}
+                >
+                  <div
+                    class={`sub-title ${
+                      localStorage.getItem("lang") === "arabic" && "ar"
+                    }`}
+                    style={{
+                      paddingRight:
+                        localStorage.getItem("lang") === "english"
+                          ? "0"
+                          : "70px",
+                    }}
+                  >
+                    {localStorage.getItem("lang") === "english"
+                      ? "Write Here"
+                      : "اكتب هنا"}
+                  </div>
+                  <h2>
+                    {" "}
+                    {localStorage.getItem("lang") === "english"
+                      ? "Get In Touch"
+                      : "ابقى على تواصل"}
+                  </h2>
                 </div>
                 {/* <!-- Contact Form--> */}
-                <div class="contact-form">
+                <div
+                  class="contact-form"
+                  style={{
+                    marginLeft:
+                      localStorage.getItem("lang") === "english" ? "0" : "60px",
+                    marginRight:
+                      localStorage.getItem("lang") === "english" ? "60px" : "0",
+                  }}
+                >
                   <form
                     method="post"
                     action="http://azim.commonsupport.com/Finandox/sendemail.php"
                     id="contact-form"
                   >
-                    <div class="row clearfix">
+                    <div
+                      class="row clearfix"
+                      style={{
+                        textAlign:
+                          localStorage.getItem("lang") === "english"
+                            ? "start"
+                            : "end",
+                      }}
+                    >
                       <div class="col-md-12 form-group">
-                        <label for="name">Enter your name</label>
+                        <label for="name">
+                          {localStorage.getItem("lang") === "english"
+                            ? "Enter your name"
+                            : " أسمك"}
+                        </label>
                         <input
                           type="text"
                           name="username"
                           id="name"
-                          placeholder="Enter name here......"
+                          placeholder={
+                            localStorage.getItem("lang") === "english"
+                              ? "Enter name here......"
+                              : " أدخل الاسم هنا......"
+                          }
                           required=""
+                          class={
+                            localStorage.getItem("lang") === "arabic" && "ar"
+                          }
                         />
-                        <i class="fas fa-user"></i>
+                        <i
+                          class={`fas fa-user ${
+                            localStorage.getItem("lang") === "arabic" && "ar"
+                          }`}
+                        ></i>
                       </div>
 
                       <div class="col-md-12 form-group">
-                        <label for="email">Enter your email</label>
+                        <label for="email">
+                          {localStorage.getItem("lang") === "english"
+                            ? "Enter your email"
+                            : " بريدك الإلكتروني"}
+                        </label>
                         <input
                           type="email"
                           name="email"
                           id="email"
-                          placeholder="Enter email here......"
+                          placeholder={
+                            localStorage.getItem("lang") === "english"
+                              ? "Enter email here......"
+                              : " أدخل بريدك الإلكترونى هنا......"
+                          }
                           required=""
+                          class={
+                            localStorage.getItem("lang") === "arabic" && "ar"
+                          }
                         />
-                        <i class="fas fa-envelope"></i>
+                        <i
+                          class={`fas fa-envelope ${
+                            localStorage.getItem("lang") === "arabic" && "ar"
+                          }`}
+                        ></i>
                       </div>
 
                       <div class="col-md-12 form-group">
-                        <label for="message">Enter your message</label>
+                        <label for="message">
+                          {localStorage.getItem("lang") === "english"
+                            ? "Enter your message"
+                            : "أدخل رسالتك"}
+                        </label>
                         <textarea
                           name="message"
                           id="message"
-                          placeholder="Enter message here......"
+                          placeholder={
+                            localStorage.getItem("lang") === "english"
+                              ? "Enter message here......"
+                              : " أدخل الرسالة هنا......"
+                          }
+                          class={
+                            localStorage.getItem("lang") === "arabic" && "ar"
+                          }
                         ></textarea>
-                        <i class="fas fa-edit"></i>
+                        <i
+                          class={`fas fa-edit ${
+                            localStorage.getItem("lang") === "arabic" && "ar"
+                          }`}
+                        ></i>
                       </div>
 
                       <div class="col-md-12 form-group">
@@ -730,7 +1020,12 @@ class Index extends Component {
                           type="submit"
                           name="submit-form"
                         >
-                          <span class="btn-title">Get In Touch</span>
+                          <span class="btn-title">
+                            {" "}
+                            {localStorage.getItem("lang") === "english"
+                              ? "Get In Touch"
+                              : "تواصل معنا الان"}
+                          </span>
                         </button>
                       </div>
                     </div>
@@ -738,9 +1033,36 @@ class Index extends Component {
                 </div>
               </div>
               <div class="col-lg-6">
-                <div class="sec-title">
-                  <div class="sub-title">Get Us Here</div>
-                  <h2>Contact Us</h2>
+                <div
+                  class="sec-title"
+                  style={{
+                    textAlign:
+                      localStorage.getItem("lang") === "english"
+                        ? "start"
+                        : "end",
+                  }}
+                >
+                  <div
+                    class={`sub-title ${
+                      localStorage.getItem("lang") === "arabic" && "ar"
+                    }`}
+                    style={{
+                      paddingRight:
+                        localStorage.getItem("lang") === "english"
+                          ? "0"
+                          : "70px",
+                    }}
+                  >
+                    {localStorage.getItem("lang") === "english"
+                      ? "Get Us Here"
+                      : "احصل علينا هنا"}
+                  </div>
+                  <h2>
+                    {" "}
+                    {localStorage.getItem("lang") === "english"
+                      ? "Contact Us"
+                      : "اتصل بنا"}
+                  </h2>
                 </div>
                 <div class="contact-info">
                   <div class="border-box">
@@ -753,7 +1075,11 @@ class Index extends Component {
                         <div class="icon">
                           <span class="flaticon-email-6"></span>
                         </div>
-                        <h3>Email Address</h3>
+                        <h3>
+                          {localStorage.getItem("lang") === "english"
+                            ? "Email Address"
+                            : "البريد الإلكتروني"}
+                        </h3>
                         <ul>
                           <li>
                             <Link to={"/mailto:afwmalaki@gmail.com"}>
@@ -768,7 +1094,11 @@ class Index extends Component {
                         <div class="icon">
                           <span class="flaticon-call-1"></span>
                         </div>
-                        <h3>Phone Number</h3>
+                        <h3>
+                          {localStorage.getItem("lang") === "english"
+                            ? "Phone Number"
+                            : "رقم التليفون"}
+                        </h3>
                         <ul>
                           <li>
                             <Link to={"/tel:+8976765654654"}>
@@ -783,11 +1113,15 @@ class Index extends Component {
                         <div class="icon">
                           <span class="flaticon-location"></span>
                         </div>
-                        <h3>Office Address</h3>
+                        <h3>
+                          {localStorage.getItem("lang") === "english"
+                            ? "Office Address"
+                            : "عنوان المكتب"}
+                        </h3>
                         <ul>
                           <li>
-                            12/A, Romania City Town Hall <br />
-                            New Joursey, UK
+                            73, Nabil El Wakkad, Masr El Gdeida <br />
+                            Cairo, Egypt
                           </li>
                         </ul>
                       </div>
@@ -797,10 +1131,20 @@ class Index extends Component {
                         <div class="icon">
                           <span class="flaticon-worldwide"></span>
                         </div>
-                        <h3>Web Connect</h3>
+                        <h3>
+                          {localStorage.getItem("lang") === "english"
+                            ? "Web Connect"
+                            : "الموقع الإلكترونى"}
+                        </h3>
                         <ul>
                           <li>
-                            <Link to={"/http://example.com/"}>example.com</Link>
+                            <Link
+                              to={
+                                "/http://https://lawyer-f514e.web.app/demo/fianandox/"
+                              }
+                            >
+                              lawyer-f514e.web.app
+                            </Link>
                           </li>
                         </ul>
                       </div>

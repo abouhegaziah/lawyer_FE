@@ -99,12 +99,27 @@ class Blog extends Component {
           <div class="bottom-rotten-curve alternate"></div>
 
           <div class="auto-container">
-            <h1>Our Blog</h1>
+            <h1>
+              {localStorage.getItem("lang") === "english"
+                ? "Our Cases"
+                : "القضايا"}
+            </h1>
             <ul class="bread-crumb clearfix">
-              <li>
-                <Link to={"/#"}>Home</Link>
-              </li>
-              <li class="active">Blog</li>
+              {localStorage.getItem("lang") === "english" ? (
+                <>
+                  <li>
+                    <Link to={"/#"}>Home</Link>
+                  </li>
+                  <li class="active">Cases</li>
+                </>
+              ) : (
+                <>
+                  <li class="active">القضايا</li>
+                  <li>
+                    <Link to={"/#"}>الرئيسية</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </section>
@@ -146,13 +161,26 @@ class Blog extends Component {
                               padding: "2%",
                             }}
                           >
-                            <Row>
+                            <Row
+                              style={{
+                                flexDirection:
+                                  localStorage.getItem("lang") === "english"
+                                    ? "row"
+                                    : "row-reverse",
+                                textAlign:
+                                  localStorage.getItem("lang") === "english"
+                                    ? "start"
+                                    : "end",
+                              }}
+                            >
                               <Col xs={3}>
                                 {" "}
                                 <h4
                                   style={{ padding: "1%", fontWeight: "500" }}
                                 >
-                                  plaintiff:
+                                  {localStorage.getItem("lang") === "english"
+                                    ? "plaintiff:"
+                                    : ":مدعى"}
                                 </h4>
                               </Col>
                               <Col>
@@ -163,17 +191,43 @@ class Blog extends Component {
                                     fontWeight: "500",
                                   }}
                                 >
-                                  {c.name_1} - {c.email_1} - {c.number_1} <br />{" "}
-                                  {c.address_1}
+                                  {localStorage.getItem("lang") ===
+                                  "english" ? (
+                                    <>
+                                      {" "}
+                                      {c.name_1} - {c.email_1} - {c.number_1}{" "}
+                                      <br /> {c.address_1}
+                                    </>
+                                  ) : (
+                                    <>
+                                      {" "}
+                                      {c.number_1} - {c.email_1} - {c.name_1}
+                                      <br />
+                                      {c.address_1}
+                                    </>
+                                  )}
                                 </p>
                               </Col>
                             </Row>
-                            <Row>
+                            <Row
+                              style={{
+                                flexDirection:
+                                  localStorage.getItem("lang") === "english"
+                                    ? "row"
+                                    : "row-reverse",
+                                textAlign:
+                                  localStorage.getItem("lang") === "english"
+                                    ? "start"
+                                    : "end",
+                              }}
+                            >
                               <Col xs={3}>
                                 <h4
                                   style={{ padding: "1%", fontWeight: "500" }}
                                 >
-                                  defendant:
+                                  {localStorage.getItem("lang") === "english"
+                                    ? "defendant:"
+                                    : ":المدعى عليه"}
                                 </h4>
                               </Col>
                               <Col>
@@ -184,14 +238,53 @@ class Blog extends Component {
                                     fontWeight: "500",
                                   }}
                                 >
-                                  {c.name_2} - {c.email_2} - {c.number_2} <br />{" "}
-                                  {c.address_2}
+                                  {localStorage.getItem("lang") ===
+                                  "english" ? (
+                                    <>
+                                      {" "}
+                                      {c.name_2} - {c.email_2} - {c.number_2}{" "}
+                                      <br /> {c.address_2}
+                                    </>
+                                  ) : (
+                                    <>
+                                      {" "}
+                                      {c.number_2} - {c.email_2} - {c.name_2}
+                                      <br />
+                                      {c.address_2}
+                                    </>
+                                  )}
                                 </p>
                               </Col>
                             </Row>
                           </div>
-                          <div class="lower-content">
-                            <div class="category">Case {c._id}</div>
+                          <div
+                            class="lower-content"
+                            style={{
+                              textAlign:
+                                localStorage.getItem("lang") === "english"
+                                  ? "start"
+                                  : "end",
+                              display:
+                                localStorage.getItem("lang") === "english"
+                                  ? "block"
+                                  : "flex",
+                              flexDirection:
+                                localStorage.getItem("lang") === "english"
+                                  ? ""
+                                  : "column",
+                              alignItems:
+                                localStorage.getItem("lang") === "english"
+                                  ? "flex-start"
+                                  : "flex-end",
+                            }}
+                          >
+                            <div class="category">
+                              {localStorage.getItem("lang") === "english" &&
+                                "Case"}{" "}
+                              {c._id}{" "}
+                              {localStorage.getItem("lang") !== "english" &&
+                                "قضية"}
+                            </div>
                             <ul class="post-meta">
                               <li>
                                 <Link to={"/#"}>

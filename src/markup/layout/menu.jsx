@@ -9,9 +9,23 @@ class Menu extends Component {
           class="collapse navbar-collapse show clearfix"
           id="navbarSupportedContent"
         >
-          <ul class="navigation clearfix">
+          <ul
+            class="navigation clearfix"
+            style={{
+              display:
+                localStorage.getItem("lang") === "english" ? "block" : " flex",
+              flexDirection:
+                localStorage.getItem("lang") === "english"
+                  ? "row"
+                  : "row-reverse",
+            }}
+          >
             <li>
-              <Link to={"/#"}>Home</Link>
+              <Link to={"/#"}>
+                {localStorage.getItem("lang") === "english"
+                  ? "Home"
+                  : " الرئيسية"}
+              </Link>
             </li>
             {/* <li>
               <Link to={"/#"}>Episodes</Link>
@@ -39,16 +53,51 @@ class Menu extends Component {
                         </li> */}
 
             <li class="dropdown">
-              <Link to={"/#"}>Cases</Link>
-              <ul>
+              <Link to={"/#"}>
+                {localStorage.getItem("lang") === "english"
+                  ? "Cases"
+                  : "القضايا"}
+              </Link>
+              <ul
+                style={{
+                  left:
+                    localStorage.getItem("lang") === "english" ? "0" : "unset",
+                  right:
+                    localStorage.getItem("lang") === "english" ? "unset" : "0",
+                }}
+              >
                 {localStorage.getItem("admin") && (
                   <li>
-                    <Link to={"/cases"}>Cases</Link>
+                    <Link
+                      to={"/cases"}
+                      style={{
+                        textAlign:
+                          localStorage.getItem("lang") === "english"
+                            ? "start"
+                            : "end",
+                      }}
+                    >
+                      {localStorage.getItem("lang") === "english"
+                        ? "Cases"
+                        : " عرض القضايا "}
+                    </Link>
                   </li>
                 )}
 
                 <li>
-                  <Link to={"/create-case"}>Create Case</Link>
+                  <Link
+                    to={"/create-case"}
+                    style={{
+                      textAlign:
+                        localStorage.getItem("lang") === "english"
+                          ? "start"
+                          : "end",
+                    }}
+                  >
+                    {localStorage.getItem("lang") === "english"
+                      ? "Create Case"
+                      : "إنشاء قضية"}
+                  </Link>
                 </li>
 
                 {/* <li>
@@ -57,14 +106,49 @@ class Menu extends Component {
               </ul>
             </li>
             <li class="dropdown">
-              <Link to={"/#"}>Episodes</Link>
-              <ul>
+              <Link to={"/#"}>
+                {localStorage.getItem("lang") === "english"
+                  ? "Episodes"
+                  : "الحلقات "}
+              </Link>
+              <ul
+                style={{
+                  left:
+                    localStorage.getItem("lang") === "english" ? "0" : "unset",
+                  right:
+                    localStorage.getItem("lang") === "english" ? "unset" : "0",
+                }}
+              >
                 <li>
-                  <Link to={"/episodes"}>Episodes</Link>
+                  <Link
+                    to={"/episodes"}
+                    style={{
+                      textAlign:
+                        localStorage.getItem("lang") === "english"
+                          ? "start"
+                          : "end",
+                    }}
+                  >
+                    {localStorage.getItem("lang") === "english"
+                      ? "Episodes"
+                      : " عرض الحلقات "}
+                  </Link>
                 </li>
                 {localStorage.getItem("admin") && (
                   <li>
-                    <Link to={"/upload-episode"}>Upload Episode</Link>
+                    <Link
+                      to={"/upload-episode"}
+                      style={{
+                        textAlign:
+                          localStorage.getItem("lang") === "english"
+                            ? "start"
+                            : "end",
+                      }}
+                    >
+                      {localStorage.getItem("lang") === "english"
+                        ? "Upload Episode"
+                        : "تحميل الحلقة"}
+                    </Link>
                   </li>
                 )}
               </ul>
@@ -85,14 +169,47 @@ class Menu extends Component {
               </ul>
             </li> */}
             <li class="dropdown">
-              <Link to={"/#"}>Blog</Link>
-              <ul>
+              <Link to={"/#"}>
+                {localStorage.getItem("lang") === "english" ? "Blog" : "مدونة"}
+              </Link>
+              <ul
+                style={{
+                  left:
+                    localStorage.getItem("lang") === "english" ? "0" : "unset",
+                  right:
+                    localStorage.getItem("lang") === "english" ? "unset" : "0",
+                }}
+              >
                 <li>
-                  <Link to={"/blog-standard"}>Blog Standard</Link>
+                  <Link
+                    to={"/blog-standard"}
+                    style={{
+                      textAlign:
+                        localStorage.getItem("lang") === "english"
+                          ? "start"
+                          : "end",
+                    }}
+                  >
+                    {localStorage.getItem("lang") === "english"
+                      ? "Blog Standard"
+                      : "المدونة"}
+                  </Link>
                 </li>
                 {localStorage.getItem("admin") && (
                   <li>
-                    <Link to={"/create-post"}>Create Post</Link>
+                    <Link
+                      to={"/create-post"}
+                      style={{
+                        textAlign:
+                          localStorage.getItem("lang") === "english"
+                            ? "start"
+                            : "end",
+                      }}
+                    >
+                      {localStorage.getItem("lang") === "english"
+                        ? "Create Post "
+                        : "إنشاء منشور"}
+                    </Link>
                   </li>
                 )}
               </ul>
@@ -136,10 +253,24 @@ class Menu extends Component {
               </ul>
             </li> */}
             <li>
-              <Link to={"/about"}>About Us</Link>
+              <Link to={"/about"}>
+                {" "}
+                {localStorage.getItem("lang") === "english"
+                  ? "About Us"
+                  : "معلومات عنا"}
+              </Link>
             </li>
-            <li>
-              <Link to={"/contact"}>Contact</Link>
+            <li
+              style={{
+                marginRight:
+                  localStorage.getItem("lang") === "english" ? "0" : "40px",
+              }}
+            >
+              <Link to={"/contact"}>
+                {localStorage.getItem("lang") === "english"
+                  ? "Contact Us"
+                  : "اتصل بنا"}
+              </Link>
             </li>
           </ul>
         </div>

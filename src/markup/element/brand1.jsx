@@ -15,7 +15,13 @@ const Brand1_content = [
     thumb: require("../../assets/images/logo update.png"),
   },
   {
-    thumb: require("../../assets/images/logo-dark-neon.png"),
+    thumb: require("../../assets/images/WhatsApp Image 2023-03-02 at 4.59.59 PM copy.png"),
+  },
+  {
+    thumb: require("../../assets/images/final final logo-2 copy.png"),
+  },
+  {
+    thumb: require("../../assets/images/logo update.png"),
   },
 ];
 
@@ -25,9 +31,44 @@ class Brand1 extends Component {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 4,
+      slidesToShow: 3,
       slidesToScroll: 1,
-      autoplay: false,
+      autoplay: true,
+      onSwipe: function () {
+        const notePrev = document.getElementsByClassName("slick-active")[1];
+        const note = document.getElementsByClassName("slick-active")[2];
+        if (note) {
+          console.log(
+            note.childNodes[0].childNodes[0].childNodes[0].childNodes[0]
+          );
+          const edit =
+            note.childNodes[0].childNodes[0].childNodes[0].childNodes[0];
+          const prev =
+            notePrev.childNodes[0].childNodes[0].childNodes[0].childNodes[0];
+          edit.style.opacity = "1";
+          edit.style.filter = "none";
+          prev.style.opacity = "0.3";
+          prev.style.filter = "greyscale(100%)";
+        }
+      },
+      afterChange: function () {
+        console.log("now");
+        const notePrev = document.getElementsByClassName("slick-active")[0];
+        const note = document.getElementsByClassName("slick-active")[1];
+        if (note) {
+          console.log(
+            note.childNodes[0].childNodes[0].childNodes[0].childNodes[0]
+          );
+          const edit =
+            note.childNodes[0].childNodes[0].childNodes[0].childNodes[0];
+          const prev =
+            notePrev.childNodes[0].childNodes[0].childNodes[0].childNodes[0];
+          edit.style.opacity = "1";
+          edit.style.filter = "none";
+          prev.style.opacity = "0.3";
+          prev.style.filter = "greyscale(100%)";
+        }
+      },
     };
     return (
       <>
@@ -41,9 +82,7 @@ class Brand1 extends Component {
                   {Brand1_content.map((item, id) => (
                     <div class="slide-item" key={id}>
                       <figure class="image-box">
-                        <Link to={"/#"}>
-                          <img src={item.thumb} alt="" />
-                        </Link>
+                        <img src={item.thumb} alt="" />
                       </figure>
                     </div>
                   ))}

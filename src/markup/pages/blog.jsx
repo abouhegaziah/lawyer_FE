@@ -90,12 +90,27 @@ class Blog extends Component {
           <div class="bottom-rotten-curve alternate"></div>
 
           <div class="auto-container">
-            <h1>Our Blog</h1>
+            <h1>
+              {localStorage.getItem("lang") === "english"
+                ? "Our Blog"
+                : "مدونتنا"}
+            </h1>
             <ul class="bread-crumb clearfix">
-              <li>
-                <Link to={"/#"}>Home</Link>
-              </li>
-              <li class="active">Blog</li>
+              {localStorage.getItem("lang") === "english" ? (
+                <>
+                  <li>
+                    <Link to={"/#"}>Home</Link>
+                  </li>
+                  <li class="active">Blog</li>
+                </>
+              ) : (
+                <>
+                  <li class="active">مدونة</li>
+                  <li>
+                    <Link to={"/#"}>الرئيسيه</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </section>
@@ -122,6 +137,20 @@ class Blog extends Component {
                     "November",
                     "December",
                   ];
+                  const month_ar = [
+                    "يناير",
+                    "فبراير",
+                    "مارس",
+                    "إبريل",
+                    "مايو",
+                    "يونيو",
+                    "يوليو",
+                    "أغسطس",
+                    "سبتمبر",
+                    "أكتوبر",
+                    "نوفمبر",
+                    "ديسمبر",
+                  ];
                   const d = new Date(p.createdAt);
                   console.log(d);
                   return (
@@ -135,13 +164,42 @@ class Blog extends Component {
                             <img src={p.image} alt="" />
                           </Link>
                         </div>
-                        <div class="lower-content">
-                          <div class="category">Post {p._id}</div>
+                        <div
+                          class="lower-content"
+                          style={{
+                            display:
+                              localStorage.getItem("lang") === "english"
+                                ? "block"
+                                : "flex",
+                            flexDirection:
+                              localStorage.getItem("lang") === "english"
+                                ? ""
+                                : "column",
+                            textAlign:
+                              localStorage.getItem("lang") === "english"
+                                ? "start"
+                                : "end",
+                            alignItems:
+                              localStorage.getItem("lang") === "english"
+                                ? "flex-start"
+                                : "flex-end",
+                          }}
+                        >
+                          <div class="category">
+                            {localStorage.getItem("lang") === "english" &&
+                              "Post"}{" "}
+                            {p._id}{" "}
+                            {localStorage.getItem("lang") !== "english" &&
+                              "منشور"}{" "}
+                          </div>
                           <ul class="post-meta">
                             <li>
                               <Link to={"/#"}>
                                 <i class="far fa-calendar-alt"></i>
-                                {d.getDate()}th {monthNames[d.getMonth()]}{" "}
+                                {d.getDate()}th{" "}
+                                {localStorage.getItem("lang") === "english"
+                                  ? monthNames[d.getMonth()]
+                                  : month_ar[d.getMonth()]}{" "}
                                 {"  "}
                                 {d.getFullYear()}
                               </Link>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import Header from "../layout/header";
 import axios from "axios";
+import Footer from "../layout/footer";
 
 const aboutbg = require("./../../assets/images/background/image-11.jpg");
 
@@ -262,6 +263,7 @@ class CreateCase extends Component {
             </div>
           </div>
         </Modal>
+        <Footer />
       </>
     );
   }
