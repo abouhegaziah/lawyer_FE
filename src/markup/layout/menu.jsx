@@ -52,8 +52,8 @@ class Menu extends Component {
                             </ul>
                         </li> */}
 
-            <li class="dropdown">
-              <Link to={"/#"}>
+            <li class={`${localStorage.getItem("admin") && "dropdown"}`}>
+              <Link to={"/create-case"}>
                 {localStorage.getItem("lang") === "english"
                   ? "Cases"
                   : "القضايا"}
@@ -105,8 +105,8 @@ class Menu extends Component {
                 </li> */}
               </ul>
             </li>
-            <li class="dropdown">
-              <Link to={"/#"}>
+            <li class={`${localStorage.getItem("admin") && "dropdown"}`}>
+              <Link to={"/episodes"}>
                 {localStorage.getItem("lang") === "english"
                   ? "Episodes"
                   : "الحلقات "}
@@ -168,8 +168,8 @@ class Menu extends Component {
                 </li>
               </ul>
             </li> */}
-            <li class="dropdown">
-              <Link to={"/#"}>
+            <li class={`${localStorage.getItem("admin") && "dropdown"}`}>
+              <Link to={"/blog-standard"}>
                 {localStorage.getItem("lang") === "english" ? "Blog" : "مدونة"}
               </Link>
               <ul

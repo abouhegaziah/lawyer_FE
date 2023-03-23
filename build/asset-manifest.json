@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.6038f9a0.chunk.css",
-    "main.js": "/static/js/main.d3ee09f9.chunk.js",
-    "main.js.map": "/static/js/main.d3ee09f9.chunk.js.map",
+    "main.css": "/static/css/main.c60769f7.chunk.css",
+    "main.js": "/static/js/main.8555c34b.chunk.js",
+    "main.js.map": "/static/js/main.8555c34b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.76f6b1ca.js",
     "runtime-main.js.map": "/static/js/runtime-main.76f6b1ca.js.map",
     "static/css/2.03a0228a.chunk.css": "/static/css/2.03a0228a.chunk.css",
-    "static/js/2.7b609644.chunk.js": "/static/js/2.7b609644.chunk.js",
-    "static/js/2.7b609644.chunk.js.map": "/static/js/2.7b609644.chunk.js.map",
+    "static/js/2.6184ee22.chunk.js": "/static/js/2.6184ee22.chunk.js",
+    "static/js/2.6184ee22.chunk.js.map": "/static/js/2.6184ee22.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.6255bb17fb64f6e0bc6101c14d0059e0.js": "/precache-manifest.6255bb17fb64f6e0bc6101c14d0059e0.js",
+    "precache-manifest.5b6c599326b16dc6aa0ad5b74923c251.js": "/precache-manifest.5b6c599326b16dc6aa0ad5b74923c251.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.03a0228a.chunk.css.map": "/static/css/2.03a0228a.chunk.css.map",
-    "static/css/main.6038f9a0.chunk.css.map": "/static/css/main.6038f9a0.chunk.css.map",
-    "static/js/2.7b609644.chunk.js.LICENSE.txt": "/static/js/2.7b609644.chunk.js.LICENSE.txt",
+    "static/css/main.c60769f7.chunk.css.map": "/static/css/main.c60769f7.chunk.css.map",
+    "static/js/2.6184ee22.chunk.js.LICENSE.txt": "/static/js/2.6184ee22.chunk.js.LICENSE.txt",
     "static/media/1.jpg": "/static/media/1.11d0fb35.jpg",
     "static/media/11.jpg": "/static/media/11.9a012589.jpg",
     "static/media/12.jpg": "/static/media/12.db982374.jpg",
@@ -34,6 +34,8 @@
     "static/media/award-3.png": "/static/media/award-3.332b3801.png",
     "static/media/award-4.png": "/static/media/award-4.bbdf7fa8.png",
     "static/media/award-5.png": "/static/media/award-5.77deb9a0.png",
+    "static/media/download.svg": "/static/media/download.2dc6885d.svg",
+    "static/media/egypt.svg.png": "/static/media/egypt.svg.cc15fdd9.png",
     "static/media/final final logo-2 copy.png": "/static/media/final final logo-2 copy.50f5b5fd.png",
     "static/media/gallery-10.jpg": "/static/media/gallery-10.76d17955.jpg",
     "static/media/gallery-11.jpg": "/static/media/gallery-11.7baadf46.jpg",
@@ -77,7 +79,6 @@
     "static/media/image-8.jpg": "/static/media/image-8.e75e3b19.jpg",
     "static/media/image-9.jpg": "/static/media/image-9.bdfb16d6.jpg",
     "static/media/logo update.png": "/static/media/logo update.a99cb4b5.png",
-    "static/media/logo-dark-neon.png": "/static/media/logo-dark-neon.d6118b81.png",
     "static/media/logo2.png": "/static/media/logo2.a3d8845d.png",
     "static/media/news-1.jpg": "/static/media/news-1.6db9a88e.jpg",
     "static/media/news-10.jpg": "/static/media/news-10.f3f7e7bd.jpg",
@@ -111,14 +112,13 @@
     "static/media/team-4.jpg": "/static/media/team-4.ee707ef2.jpg",
     "static/media/team-5.jpg": "/static/media/team-5.d67d947d.jpg",
     "static/media/team-6.jpg": "/static/media/team-6.3f9dc065.jpg",
-    "static/media/team-7.jpg": "/static/media/team-7.1380c1f1.jpg",
-    "static/media/tiktok.svg": "/static/media/tiktok.2c4d7fe6.svg"
+    "static/media/team-7.jpg": "/static/media/team-7.1380c1f1.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.76f6b1ca.js",
     "static/css/2.03a0228a.chunk.css",
-    "static/js/2.7b609644.chunk.js",
-    "static/css/main.6038f9a0.chunk.css",
-    "static/js/main.d3ee09f9.chunk.js"
+    "static/js/2.6184ee22.chunk.js",
+    "static/css/main.c60769f7.chunk.css",
+    "static/js/main.8555c34b.chunk.js"
   ]
 }

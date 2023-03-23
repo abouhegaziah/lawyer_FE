@@ -56,12 +56,25 @@ class CreateCase extends Component {
           <div class="bottom-rotten-curve alternate"></div>
 
           <div class="auto-container">
-            <h1>Cases</h1>
+            <h1>
+              {localStorage.getItem("lang") === "english" ? "Cases" : "القضايا"}
+            </h1>
             <ul class="bread-crumb clearfix">
-              <li>
-                <Link to={"/#"}>Home</Link>
-              </li>
-              <li class="active">Cases</li>
+              {localStorage.getItem("lang") === "english" ? (
+                <>
+                  <li>
+                    <Link to={"/#"}>Home</Link>
+                  </li>
+                  <li class="active">Cases</li>
+                </>
+              ) : (
+                <>
+                  <li class="active">القضايا</li>
+                  <li>
+                    <Link to={"/#"}>الرئيسيه</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </section>
@@ -70,155 +83,308 @@ class CreateCase extends Component {
           style={{ marginBottom: "5%", marginTop: "2%" }}
         >
           <div class="sec-title text-center">
-            <div class="sub-title">Write Here</div>
-            <h2>Add Your Case</h2>
+            <div class="sub-title">
+              {localStorage.getItem("lang") === "english"
+                ? "Write Here"
+                : "اكتب هنا"}
+            </div>
+            <h2>
+              {localStorage.getItem("lang") === "english"
+                ? "Add Your Case"
+                : "سجل قضيتك "}
+            </h2>
           </div>
           {/* <!-- Contact Form--> */}
           <div class="contact-form" style={{ width: "80%", margin: "auto" }}>
-            <div class="row clearfix">
+            <div
+              class="row clearfix"
+              style={{
+                textAlign:
+                  localStorage.getItem("lang") === "english" ? "start" : "end",
+                flexDirection:
+                  localStorage.getItem("lang") === "english"
+                    ? "row"
+                    : "row-reverse",
+              }}
+            >
               <div class="col-md-6 form-group">
-                <label for="name">Enter your name</label>
+                <label for="name">
+                  {localStorage.getItem("lang") === "english"
+                    ? "Enter your name......"
+                    : "أدخل أسمك"}
+                </label>
                 <input
                   type="text"
                   name="username"
                   id="name"
-                  placeholder="Enter name here......"
+                  placeholder={
+                    localStorage.getItem("lang") === "english"
+                      ? "Enter name here......"
+                      : " أدخل اسمك هنا......"
+                  }
                   required=""
                   onChange={(e) => {
                     this.setState({ name_1: e.target.value });
                   }}
+                  class={localStorage.getItem("lang") === "arabic" && "ar"}
                 />
-                <i class="fas fa-user"></i>
+                <i
+                  class={`fas fa-user ${
+                    localStorage.getItem("lang") === "arabic" && "ar"
+                  }`}
+                ></i>
               </div>
 
               <div class="col-md-6 form-group">
-                <label for="email">Enter His/Her name</label>
+                <label for="email">
+                  {localStorage.getItem("lang") === "english"
+                    ? "Enter His/Her name"
+                    : "أدخل أسم الطرف الثانى"}
+                </label>
                 <input
                   type="text"
                   name="email"
                   id="email"
-                  placeholder="Enter email here......"
+                  placeholder={
+                    localStorage.getItem("lang") === "english"
+                      ? "Enter name here......"
+                      : " أدخل الاسم هنا......"
+                  }
                   required=""
                   onChange={(e) => {
                     this.setState({ name_2: e.target.value });
                   }}
+                  class={localStorage.getItem("lang") === "arabic" && "ar"}
                 />
-                <i class="fas fa-user"></i>
+                <i
+                  class={`fas fa-user ${
+                    localStorage.getItem("lang") === "arabic" && "ar"
+                  }`}
+                ></i>
               </div>
               <div class="col-md-6 form-group">
-                <label for="name">Enter your email</label>
+                <label for="name">
+                  {" "}
+                  {localStorage.getItem("lang") === "english"
+                    ? "Enter your email"
+                    : "أدخل بريدك الإلكتروني"}
+                </label>
                 <input
                   type="email"
                   name="username"
                   id="name"
-                  placeholder="Enter email here......"
+                  placeholder={
+                    localStorage.getItem("lang") === "english"
+                      ? "Enter email here......"
+                      : "أدخل بريدك هنا...."
+                  }
                   required=""
                   onChange={(e) => {
                     this.setState({ email_1: e.target.value });
                   }}
+                  class={localStorage.getItem("lang") === "arabic" && "ar"}
                 />
-                <i class="fas fa-envelope"></i>
+                <i
+                  class={`fas fa-envelope ${
+                    localStorage.getItem("lang") === "arabic" && "ar"
+                  }`}
+                ></i>
               </div>
 
               <div class="col-md-6 form-group">
-                <label for="email">Enter His/Her email</label>
+                <label for="email">
+                  {" "}
+                  {localStorage.getItem("lang") === "english"
+                    ? "Enter yEnter His/Her email"
+                    : "أدخل بريد الطرف الثانى الإلكتروني"}
+                </label>
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Enter email here......"
+                  placeholder={
+                    localStorage.getItem("lang") === "english"
+                      ? "Enter email here......"
+                      : "أدخل البريد هنا...."
+                  }
                   required=""
                   onChange={(e) => {
                     this.setState({ email_2: e.target.value });
                   }}
+                  class={localStorage.getItem("lang") === "arabic" && "ar"}
                 />
-                <i class="fas fa-envelope"></i>
+                <i
+                  class={`fas fa-envelope ${
+                    localStorage.getItem("lang") === "arabic" && "ar"
+                  }`}
+                ></i>
               </div>
               <div class="col-md-6 form-group">
-                <label for="name">Enter your number</label>
+                <label for="name">
+                  {" "}
+                  {localStorage.getItem("lang") === "english"
+                    ? "Enter your number"
+                    : "أدخل رقمك"}
+                </label>
                 <input
                   type="text"
                   name="username"
                   id="name"
-                  placeholder="Enter number here......"
+                  placeholder={
+                    localStorage.getItem("lang") === "english"
+                      ? "Enter your number here ..... "
+                      : " أدخل رقمك هنا...."
+                  }
                   required=""
                   onChange={(e) => {
                     this.setState({ number_1: e.target.value });
                   }}
+                  class={localStorage.getItem("lang") === "arabic" && "ar"}
                 />
-                <i class="fas fa-phone"></i>
+                <i
+                  class={`fas fa-phone ${
+                    localStorage.getItem("lang") === "arabic" && "ar"
+                  }`}
+                ></i>
               </div>
 
               <div class="col-md-6 form-group">
-                <label for="email">Enter His/Her number</label>
+                <label for="email">
+                  {" "}
+                  {localStorage.getItem("lang") === "english"
+                    ? "Enter His/Her number"
+                    : "أدخل رقم الطرف الثانى"}
+                </label>
                 <input
-                  type="email"
+                  type="text"
                   name="email"
                   id="email"
-                  placeholder="Enter number here......"
+                  placeholder={
+                    localStorage.getItem("lang") === "english"
+                      ? "Enter number here ..... "
+                      : " أدخل الرقم هنا...."
+                  }
                   required=""
                   onChange={(e) => {
                     this.setState({ number_2: e.target.value });
                   }}
+                  class={localStorage.getItem("lang") === "arabic" && "ar"}
                 />
-                <i class="fas fa-phone"></i>
+                <i
+                  class={`fas fa-phone ${
+                    localStorage.getItem("lang") === "arabic" && "ar"
+                  }`}
+                ></i>
               </div>
               <div class="col-md-6 form-group">
-                <label for="name">Enter your Address</label>
+                <label for="name">
+                  {" "}
+                  {localStorage.getItem("lang") === "english"
+                    ? "Enter your Address"
+                    : "أدخل عنوانك"}
+                </label>
                 <input
                   type="text"
                   name="username"
                   id="name"
-                  placeholder="Enter Address here......"
+                  placeholder={
+                    localStorage.getItem("lang") === "english"
+                      ? "Enter your Address here...."
+                      : "أدخل عنوانك هنا ...."
+                  }
                   required=""
                   onChange={(e) => {
                     this.setState({ address_1: e.target.value });
                   }}
+                  class={localStorage.getItem("lang") === "arabic" && "ar"}
                 />
-                <i class="fas fa-address-card"></i>
+                <i
+                  class={`fas fa-address-card ${
+                    localStorage.getItem("lang") === "arabic" && "ar"
+                  }`}
+                ></i>
               </div>
 
               <div class="col-md-6 form-group">
-                <label for="email">Enter His/Her Address</label>
+                <label for="email">
+                  {localStorage.getItem("lang") === "english"
+                    ? "Enter His/Her Address"
+                    : "أدخل عنوان الطرف الثانى"}
+                </label>
                 <input
-                  type="email"
+                  type="text"
                   name="email"
                   id="email"
-                  placeholder="Enter Address here......"
+                  placeholder={
+                    localStorage.getItem("lang") === "english"
+                      ? "Enter Address here...."
+                      : "أدخل العنوان هنا ...."
+                  }
                   required=""
                   onChange={(e) => {
                     this.setState({ address_2: e.target.value });
                   }}
+                  class={localStorage.getItem("lang") === "arabic" && "ar"}
                 />
-                <i class="fas fa-address-card"></i>
+                <i
+                  class={`fas fa-address-card ${
+                    localStorage.getItem("lang") === "arabic" && "ar"
+                  }`}
+                ></i>
               </div>
 
               <div class="col-md-12 form-group">
-                <label for="message">Subject</label>
+                <label for="message">
+                  {localStorage.getItem("lang") === "english"
+                    ? "Subject"
+                    : " الموضوع"}
+                </label>
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Enter Subject here......"
+                  placeholder={
+                    localStorage.getItem("lang") === "english"
+                      ? "Enter Subject here....."
+                      : "أدخل الموضوع هنا ...."
+                  }
                   required=""
                   onChange={(e) => {
                     this.setState({ subject: e.target.value });
                   }}
+                  class={localStorage.getItem("lang") === "arabic" && "ar"}
                 />
-                <i class="fas fa-edit"></i>
+                <i
+                  class={`fas fa-edit ${
+                    localStorage.getItem("lang") === "arabic" && "ar"
+                  }`}
+                ></i>
               </div>
 
               <div class="col-md-12 form-group">
-                <label for="message">Enter your message</label>
+                <label for="message">
+                  {localStorage.getItem("lang") === "english"
+                    ? "Enter your message"
+                    : " أدخل رسالتك"}
+                </label>
                 <textarea
                   name="message"
                   id="message"
-                  placeholder="Enter message here......"
+                  placeholder={
+                    localStorage.getItem("lang") === "english"
+                      ? "Enter your message"
+                      : " أدخل رسالتك"
+                  }
                   onChange={(e) => {
                     this.setState({ case: e.target.value });
                   }}
+                  class={localStorage.getItem("lang") === "arabic" && "ar"}
                 ></textarea>
-                <i class="fas fa-edit"></i>
+                <i
+                  class={`fas fa-edit ${
+                    localStorage.getItem("lang") === "arabic" && "ar"
+                  }`}
+                ></i>
               </div>
 
               <div class="col-md-12 form-group">
@@ -228,7 +394,11 @@ class CreateCase extends Component {
                   name="submit-form"
                   onClick={this.submitCase}
                 >
-                  <span class="btn-title">Create Now</span>
+                  <span class="btn-title">
+                    {localStorage.getItem("lang") === "english"
+                      ? "Create Now"
+                      : " سجل الان"}
+                  </span>
                 </button>
               </div>
             </div>

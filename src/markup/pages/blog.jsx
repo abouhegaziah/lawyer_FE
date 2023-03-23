@@ -206,9 +206,17 @@ class Blog extends Component {
                             </li>
                           </ul>
                           <h2>
-                            <Link to={"/blog-details"}>{p.title}</Link>
+                            <Link to={"/blog-details"}>
+                              {localStorage.getItem("lang") === "english"
+                                ? p.title
+                                : p.title_ar}
+                            </Link>
                           </h2>
-                          <div class="text">{p.post}</div>
+                          <div class="text">
+                            {localStorage.getItem("lang") === "english"
+                              ? p.post
+                              : p.post_ar}
+                          </div>
                         </div>
                       </div>
                     </div>

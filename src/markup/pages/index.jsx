@@ -131,8 +131,8 @@ class Index extends Component {
             >
               <h1>
                 {localStorage.getItem("lang") === "english"
-                  ? "Making Your Business Idea"
-                  : "إصنع فكرة عملك"}
+                  ? "All things at first appear difficult"
+                  : "كل الأشياء في البداية تبدو صعبة"}
               </h1>
               <h2>
                 {localStorage.getItem("lang") === "english" ? "Afw" : "عفو"}{" "}
@@ -154,8 +154,8 @@ class Index extends Component {
                 }}
               >
                 {localStorage.getItem("lang") === "english"
-                  ? "listen, discuss, help and arbitrate with each other to find forgiveness in our hearts and find inner peace."
-                  : " .الاستماع والمناقشة والمساعدة والتحكيم بين الآخرين لمساعدتهم على العثور على المغفرة في قلوبهم وإيجاد السلام الداخلي"}
+                  ? "Listen, discuss, help and judge among others to help them find forgiveness in their hearts and find inner peace."
+                  : " .استمع وناقش وساعد واحكم من بين الآخرين لمساعدتهم على العثور على المغفرة في قلوبهم وإيجاد السلام الداخلي"}
               </div>
               <div class="btn-box">
                 <Link
@@ -218,7 +218,6 @@ class Index extends Component {
                     data-wow-delay="200ms"
                     data-wow-duration="1200ms"
                   >
-                    <div class="caption">F.</div>
                     <div class="image-outer">
                       <img
                         src={require("../../assets/images/resource/image-3.jpg")}
@@ -687,7 +686,7 @@ class Index extends Component {
                           : "end",
                     }}
                   >
-                    <div
+                    {/* <div
                       class={`sub-title ${
                         localStorage.getItem("lang") === "arabic" && "ar"
                       }`}
@@ -701,7 +700,7 @@ class Index extends Component {
                       {localStorage.getItem("lang") === "english"
                         ? "Why Choose Us"
                         : "لماذا تخترتنا"}
-                    </div>
+                    </div> */}
                     <h2>
                       {localStorage.getItem("lang") === "english"
                         ? " Afw Malaki"

@@ -13,6 +13,8 @@ class CreatePost extends Component {
     fileURL: "",
     title: "",
     post: "",
+    title_ar: "",
+    post_ar: "",
   };
 
   // On file select (from the pop up)
@@ -79,6 +81,8 @@ class CreatePost extends Component {
       image: this.state.fileURL,
       title: this.state.title,
       post: this.state.post,
+      title_ar: this.state.title_ar,
+      post_ar: this.state.post_ar,
     };
     axios
       .post("https://project-sfj2.onrender.com/blog/addBlog", obj)
@@ -103,12 +107,26 @@ class CreatePost extends Component {
           <div class="bottom-rotten-curve alternate"></div>
 
           <div class="auto-container">
-            <h1>Posts</h1>
+            <h1>
+              {" "}
+              {localStorage.getItem("lang") === "english" ? "Posts" : "منشور"}
+            </h1>
             <ul class="bread-crumb clearfix">
-              <li>
-                <Link to={"/#"}>Home</Link>
-              </li>
-              <li class="active">Posts</li>
+              {localStorage.getItem("lang") === "english" ? (
+                <>
+                  <li>
+                    <Link to={"/#"}>Home</Link>
+                  </li>
+                  <li class="active">Posts</li>
+                </>
+              ) : (
+                <>
+                  <li class="active">رفع المنشور</li>
+                  <li>
+                    <Link to={"/#"}>الرئيسية</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </section>
@@ -125,9 +143,7 @@ class CreatePost extends Component {
               >
                 <div class="sec-title light">
                   <div class="sub-title">Get In Touch</div>
-                  <h2>
-                    Create Your Post <br /> Now
-                  </h2>
+                  <h2>Create Your Post</h2>
                 </div>
                 {/* <!-- Contact Form--> */}
                 <div class="contact-form">
@@ -170,25 +186,91 @@ class CreatePost extends Component {
                       <i class="fas fa-align-justify"></i>
                     </div>
 
-                    <div class="col-md-12 form-group">
-                      <button
-                        class="theme-btn btn-style-one"
-                        name="submit-form"
-                        onClick={this.handlePost}
-                      >
-                        <span class="btn-title">POST NOW</span>
-                      </button>
-                    </div>
+                    {localStorage.getItem("lang" === "english") && (
+                      <div class="col-md-12 form-group">
+                        <button
+                          class="theme-btn btn-style-one"
+                          name="submit-form"
+                          onClick={this.handlePost}
+                        >
+                          <span class="btn-title">POST NOW</span>
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
               <div class="right-column">
-                <div class="services-content">
-                  <div class="sec-title">
-                    <div class="sub-title">The Image </div>
-                    <h2>Image Preview</h2>
+                <div
+                  class="sec-title light"
+                  style={{
+                    textAlign: "end",
+                  }}
+                >
+                  <div
+                    class={`sub-title ${
+                      localStorage.getItem("lang") === "arabic" && "ar"
+                    }`}
+                    style={{
+                      paddingRight:
+                        localStorage.getItem("lang") === "english"
+                          ? "0"
+                          : "70px",
+                      color: "#25283a",
+                    }}
+                  >
+                    انشر فكرة جديدة
                   </div>
-                  {this.fileData()}
+                  <h2 style={{ color: "#25283a" }}>اكتبها بالعربية</h2>
+                </div>
+                {/* <!-- Contact Form--> */}
+                <div class="contact-form" style={{ paddingTop: "5.4vw" }}>
+                  <div class="row clearfix">
+                    <div class="col-md-12 form-group">
+                      <input
+                        type="text"
+                        name="email"
+                        placeholder="أدخل العنوان هنا...."
+                        required=""
+                        onChange={(e) => {
+                          this.setState({ title_ar: e.target.value });
+                        }}
+                        style={{ backgroundColor: "#25283a", color: "#f8f8f8" }}
+                        className="ar revert"
+                      />
+                      <i class="fas fa-font ar" style={{ top: "21px" }}></i>
+                    </div>
+
+                    <div class="col-md-12 form-group">
+                      <textarea
+                        name="message"
+                        placeholder="أدخل المنشور هنا...."
+                        onChange={(e) => {
+                          this.setState({ post_ar: e.target.value });
+                        }}
+                        className="ar revert"
+                        style={{ backgroundColor: "#25283a", color: "#f8f8f8" }}
+                      ></textarea>
+                      <i
+                        class="fas fa-align-justify ar"
+                        style={{ top: "21px" }}
+                      ></i>
+                    </div>
+                    {localStorage.getItem("lang") === "arabic" && (
+                      <div
+                        class="col-md-12 form-group"
+                        style={{ textAlign: "end" }}
+                      >
+                        <button
+                          class="theme-btn btn-style-one"
+                          name="submit-form"
+                          onClick={this.handlePost}
+                        >
+                          <span class="btn-title">انشر الان</span>
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

@@ -2823,12 +2823,11 @@ img {
 
 .main-footer .widgets-section {
   position: relative;
-  padding: 100px 0px 30px;
+  padding: 100px 0px 0px;
 }
 
 .main-footer .column {
   position: relative;
-  margin-bottom: 50px;
 }
 
 .main-footer .footer-widget {

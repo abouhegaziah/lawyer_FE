@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import tik from "../../assets/images/tiktok.svg";
 
 class Footer extends Component {
   render() {
@@ -24,57 +25,67 @@ class Footer extends Component {
                         <Link to="index.html">
                           <img
                             class=""
-                            src={require("../../assets/images/footer-logo.png")}
+                            src={require("../../assets/images/logo2.png")}
                             alt=""
                           />
                         </Link>
                       </div>
-                      <div class="text">
-                        {localStorage.getItem("lang") === "english" ? (
-                          <>
-                            {" "}
-                            Lorem ipsum dolor sit amet, consect etur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut
-                            aliquip.
-                          </>
-                        ) : (
-                          <>
-                            من المهم الاعتناء بالمريض ، والنتيجة ستكون دهنية
-                            ولكن نفس الشيء حدث في نفس الوقت مع المخاض و مع بعض
-                            الألم الشديد. للوصول إلى أدق التفاصيل ، من لا تمرين
-                            في أي عمل إلا البعض
-                          </>
-                        )}
-                      </div>
+
                       <ul class="social-links clearfix">
                         <li>
-                          <Link to={"/#"}>
-                            <span class="fab fa-facebook-f"></span>
-                          </Link>
+                          <a
+                            href={
+                              "https://web.facebook.com/afwmalaki/about/?ref=page_internal"
+                            }
+                          >
+                            <span
+                              class="fab fa-facebook-f"
+                              style={{ fontSize: "1vw" }}
+                            ></span>
+                          </a>
+                        </li>
+                        {/* <li>
+                          <a href={"https://tiktok.com/@afwmalaki"}>
+                            <img
+                              src={tik}
+                              style={{ width: "1vw", height: "1vw" }}
+                            />
+                          </a>
+                        </li> */}
+                        <li>
+                          <a
+                            href={
+                              "https://www.youtube.com/channel/UC4cq9g3MSyM-5Jl4JRRRGRw"
+                            }
+                          >
+                            <span
+                              style={{ fontSize: "1vw" }}
+                              class="fab fa-youtube"
+                            ></span>
+                          </a>
                         </li>
                         <li>
-                          <Link to={"/#"}>
-                            <span class="fab fa-twitter"></span>
-                          </Link>
+                          <a href={"http://www.snapchat.com/add/afwmalaki"}>
+                            <span
+                              style={{ fontSize: "1vw" }}
+                              class="fab fa-snapchat"
+                            ></span>
+                          </a>
                         </li>
                         <li>
-                          <Link to={"/#"}>
-                            <span class="fab fa-vimeo-v"></span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to={"/#"}>
-                            <span class="fab fa-instagram"></span>
-                          </Link>
+                          <a href={"http://www.instagram.com/afwmalaki/"}>
+                            <span
+                              style={{ fontSize: "1vw" }}
+                              class="fab fa-instagram"
+                            ></span>
+                          </a>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
 
-                <div class="column col-lg-4">
+                <div class="column col-lg-8">
                   <div class="footer-widget links-widget">
                     <div
                       class="widget-content"
@@ -93,7 +104,16 @@ class Footer extends Component {
                       </h3>
                       <div class="row">
                         <div class="col-md-12">
-                          <ul>
+                          <ul
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              flexDirection:
+                                localStorage.getItem("lang") === "english"
+                                  ? "row"
+                                  : "row-reverse",
+                            }}
+                          >
                             <li>
                               <Link to={"/#"}>
                                 {localStorage.getItem("lang") === "english"
@@ -101,14 +121,7 @@ class Footer extends Component {
                                   : " الرئيسية"}
                               </Link>
                             </li>
-                            <li>
-                              <Link to={"/about"}>
-                                {" "}
-                                {localStorage.getItem("lang") === "english"
-                                  ? "About Us"
-                                  : "معلومات عنا"}
-                              </Link>
-                            </li>
+
                             <li>
                               <Link
                                 to={"/cases"}
@@ -152,6 +165,14 @@ class Footer extends Component {
                                 {localStorage.getItem("lang") === "english"
                                   ? "Episodes"
                                   : "الحلقات "}
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={"/about"}>
+                                {" "}
+                                {localStorage.getItem("lang") === "english"
+                                  ? "About Us"
+                                  : "معلومات عنا"}
                               </Link>
                             </li>
                             <li>

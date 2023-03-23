@@ -276,3 +276,6 @@ textarea.ar {
   word-wrap: break-word;
   max-width: 100%;
 }
+.ar.revert::placeholder {
+  color: #f8f8f8;
+}

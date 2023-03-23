@@ -152,7 +152,10 @@ export default function ShowEp(props) {
                         }}
                       >
                         <div class="category" style={{ zIndex: "11" }}>
-                          {e.number}
+                          {localStorage.getItem("lang") === "english" && "ep"}{" "}
+                          {e.number}{" "}
+                          {localStorage.getItem("lang") === "arabic" &&
+                            "الحلقة"}
                         </div>
                         <ul class="post-meta">
                           <li>
@@ -175,8 +178,16 @@ export default function ShowEp(props) {
                             </Link>
                           </li>
                         </ul>
-                        <h3>{e.title}</h3>
-                        <div class="text">{e.description}</div>
+                        <h3>
+                          {localStorage.getItem("lang") === "english"
+                            ? e.title
+                            : e.title_ar}
+                        </h3>
+                        <div class="text">
+                          {localStorage.getItem("lang") === "english"
+                            ? e.description
+                            : e.description_ar}
+                        </div>
                       </div>
                     </div>
                   </div>
