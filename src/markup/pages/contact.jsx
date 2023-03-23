@@ -28,6 +28,7 @@ class Contact extends Component {
     e.preventDefault();
     console.log("here");
     this.setState({ loading: true });
+    this.setState({ show: true });
     axios
       .post("https://project-sfj2.onrender.com/case/aboutUs", {
         email: this.state.email,
@@ -36,7 +37,6 @@ class Contact extends Component {
       })
       .then((response) => {
         console.log(response.data);
-        if (response.status === 200) this.setState({ show: true });
         this.setState({ loading: false });
         // props.setFile(response.data.url);
       })
