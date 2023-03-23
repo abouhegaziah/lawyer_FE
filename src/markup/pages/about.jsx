@@ -161,7 +161,7 @@ class About extends Component {
                         ? "You To Address"
                         : "للتصدي"}
                     </h2>
-                    <div class="text">
+                    <div class="text" style={{ paddingBottom: "15vw" }}>
                       <p>
                         {localStorage.getItem("lang") === "english" ? (
                           <>
@@ -244,7 +244,7 @@ class About extends Component {
                       class="image-wrapper"
                       style={{
                         borderBottom: "1px solid grey",
-                        paddingBottom: "30px",
+                        paddingBottom: "-5vw",
                       }}
                     >
                       <div class="image-one">
@@ -279,17 +279,12 @@ class About extends Component {
                           ? "Judge"
                           : "القاضى"}
                       </div>
-                      <div class="text">
-                        {localStorage.getItem("lang") === "english"
-                          ? "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.."
-                          : "من المهم جدًا الاعتناء بالمريض ، وسيتم اتباع هذا المرض لكن الأمر كذلك .."}
-                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-lg-6">
-                <div class="image-wrapper">
+                <div class="image-wrapper" style={{ paddingTop: "13vw" }}>
                   <div class="image-one">
                     <img
                       src={require("../../assets/images/6X9A0396.00_00_40_10.Still002.jpg")}
@@ -297,7 +292,7 @@ class About extends Component {
                     />
                   </div>
                 </div>
-                <div>
+                <div style={{ paddingTop: "11vw" }}>
                   <p>
                     {localStorage.getItem("lang") === "english" ? (
                       <>

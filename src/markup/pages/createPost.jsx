@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Header from "../layout/header";
 import axios from "axios";
+import { Modal } from "react-bootstrap";
 
 const aboutbg = require("./../../assets/images/background/image-11.jpg");
 const touchbg = require("./../../assets/images/background/image-8.jpg");
@@ -15,6 +16,7 @@ class CreatePost extends Component {
     post: "",
     title_ar: "",
     post_ar: "",
+    show: false,
   };
 
   // On file select (from the pop up)
@@ -88,6 +90,7 @@ class CreatePost extends Component {
       .post("https://project-sfj2.onrender.com/blog/addBlog", obj)
       .then((response) => {
         console.log(response.data);
+        if (response.status === 200) this.setState({ show: true });
       })
       .catch((error) => {
         console.log(error);
@@ -276,6 +279,35 @@ class CreatePost extends Component {
             </div>
           </div>
         </section>
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <div id="success_tic" role="dialog">
+            <div class="modal-dialog" style={{ margin: "0" }}>
+              <div class="modal-content">
+                <a
+                  class="close"
+                  href="#"
+                  data-dismiss="modal"
+                  onClick={() => this.setState({ show: false })}
+                >
+                  &times;
+                </a>
+                <div class="page-body">
+                  <div class="head">
+                    <h3 style={{ marginTop: "5px" }}>Congratulations !!</h3>
+                    <h4>Your Post is shared successfully</h4>
+                  </div>
+
+                  <h1 style={{ textAlign: "center" }}>
+                    <div class="checkmark-circle">
+                      <div class="background"></div>
+                      <div class="checkmark draw"></div>
+                    </div>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
       </>
     );
   }

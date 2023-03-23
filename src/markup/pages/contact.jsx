@@ -3,10 +3,48 @@ import { Link } from "react-router-dom";
 import Header from "../layout/header";
 import Footer from "../layout/footer";
 import GoogleMaps from "simple-react-google-maps";
+import axios from "axios";
+import { Modal } from "react-bootstrap";
 
 const aboutbg = require("./../../assets/images/background/image-11.jpg");
 
 class Contact extends Component {
+  state = {
+    email: "",
+    name: "",
+    message: "",
+    loading: false,
+    show: false,
+  };
+
+  handleClose = () => {
+    this.setState({ show: false });
+  };
+  handleOpen = () => {
+    this.setState({ show: true });
+  };
+
+  handleMail = (e) => {
+    e.preventDefault();
+    console.log("here");
+    this.setState({ loading: true });
+    axios
+      .post("https://project-sfj2.onrender.com/case/aboutUs", {
+        email: this.state.email,
+        name: this.state.name,
+        message: this.state.message,
+      })
+      .then((response) => {
+        console.log(response.data);
+        if (response.status === 200) this.setState({ show: true });
+        this.setState({ loading: false });
+        // props.setFile(response.data.url);
+      })
+      .catch((error) => {
+        this.setState({ loading: false });
+        console.log(error);
+      });
+  };
   render() {
     return (
       <>
@@ -136,11 +174,6 @@ class Contact extends Component {
                             afwmalaki@gmail.com
                           </Link>
                         </li>
-                        <li>
-                          <Link to={"/mailto:afwmalaki@gmail.com"}>
-                            afwmalaki@gmail.com
-                          </Link>
-                        </li>
                       </ul>
                     </div>
                   </div>
@@ -155,11 +188,6 @@ class Contact extends Component {
                           : "رقم التليفون"}
                       </h3>
                       <ul>
-                        <li>
-                          <Link to={"/tel:+201555599441"}>
-                            +2015 555 99 441
-                          </Link>
-                        </li>
                         <li>
                           <Link to={"/tel:+201555599441"}>
                             +2015 555 99 441
@@ -205,11 +233,7 @@ class Contact extends Component {
               </div>
               {/* <!-- Contact Form--> */}
               <div class="contact-form">
-                <form
-                  method="post"
-                  action="http://azim.commonsupport.com/Finandox/sendemail.php"
-                  id="contact-form"
-                >
+                <form id="contact-form">
                   <div
                     class="row clearfix"
                     style={{
@@ -243,6 +267,9 @@ class Contact extends Component {
                         class={
                           localStorage.getItem("lang") === "arabic" && "ar"
                         }
+                        onChange={(e) => {
+                          this.setState({ name: e.target.value });
+                        }}
                       />
                       <i
                         class={`fas fa-user ${
@@ -271,6 +298,9 @@ class Contact extends Component {
                         class={
                           localStorage.getItem("lang") === "arabic" && "ar"
                         }
+                        onChange={(e) => {
+                          this.setState({ email: e.target.value });
+                        }}
                       />
                       <i
                         class={`fas fa-envelope ${
@@ -296,6 +326,9 @@ class Contact extends Component {
                         class={
                           localStorage.getItem("lang") === "arabic" && "ar"
                         }
+                        onChange={(e) => {
+                          this.setState({ message: e.target.value });
+                        }}
                       ></textarea>
                       <i
                         class={`fas fa-edit ${
@@ -307,8 +340,7 @@ class Contact extends Component {
                     <div class="col-md-12 form-group">
                       <button
                         class="theme-btn btn-style-one"
-                        type="submit"
-                        name="submit-form"
+                        onClick={this.handleMail}
                       >
                         <span class="btn-title">
                           {" "}
@@ -324,6 +356,35 @@ class Contact extends Component {
             </div>
           </div>
         </section>
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <div id="success_tic" role="dialog">
+            <div class="modal-dialog" style={{ margin: "0" }}>
+              <div class="modal-content">
+                <a
+                  class="close"
+                  href="#"
+                  data-dismiss="modal"
+                  onClick={() => this.handleClose()}
+                >
+                  &times;
+                </a>
+                <div class="page-body">
+                  <div class="head">
+                    <h3 style={{ marginTop: "5px" }}>Congratulations !!</h3>
+                    <h4>Your case is registered successfully</h4>
+                  </div>
+
+                  <h1 style={{ textAlign: "center" }}>
+                    <div class="checkmark-circle">
+                      <div class="background"></div>
+                      <div class="checkmark draw"></div>
+                    </div>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
 
         <Footer />
       </>

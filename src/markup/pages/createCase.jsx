@@ -28,7 +28,7 @@ class CreateCase extends Component {
       .post("https://project-sfj2.onrender.com/case/addCase", this.state)
       .then((response) => {
         console.log(response.data);
-        this.setState({ show: true });
+        if (response.status === 200) this.setState({ show: true });
       })
       .catch((error) => {
         console.log(error);

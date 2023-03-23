@@ -44,14 +44,14 @@ class Footer extends Component {
                             ></span>
                           </a>
                         </li>
-                        {/* <li>
+                        <li>
                           <a href={"https://tiktok.com/@afwmalaki"}>
                             <img
                               src={tik}
                               style={{ width: "1vw", height: "1vw" }}
                             />
                           </a>
-                        </li> */}
+                        </li>
                         <li>
                           <a
                             href={
@@ -414,8 +414,12 @@ class Footer extends Component {
                       }}
                     >
                       <i
-                        className="fa-brands fa-whatsapp fs-5"
-                        style={{ color: "#fff", marginRight: "10px" }}
+                        style={{
+                          color: "white",
+                          fontSize: "18px",
+                          marginLeft: "10px",
+                        }}
+                        class="fab fa-whatsapp"
                       ></i>
                     </a>{" "}
                   </p>

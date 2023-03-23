@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner, Modal } from "react-bootstrap";
 import Header from "../layout/header";
 import Footer from "../layout/footer";
 import axios from "axios";
@@ -22,10 +22,16 @@ export default function UploadEpisode(props) {
   const [selectedFile, setSetelectedFile] = useState();
   const [fileURL, setFileURL] = useState(null);
   const [number, setNumber] = useState(" # ");
+  const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleUpload = (e) => {
     e.preventDefault();
     console.log(file);
+    setLoading(true);
     axios
       .post("https://project-sfj2.onrender.com/episode/addEpisode", {
         link: file,
@@ -39,9 +45,12 @@ export default function UploadEpisode(props) {
       })
       .then((response) => {
         console.log(response.data);
+        if (response.status === 200) handleShow();
+        setLoading(false);
         // props.setFile(response.data.url);
       })
       .catch((error) => {
+        setLoading(false);
         console.log(error);
       });
   };
@@ -422,9 +431,17 @@ export default function UploadEpisode(props) {
               >
                 <span class="btn-title">
                   {" "}
-                  {localStorage.getItem("lang") === "english"
-                    ? "Upload Now"
-                    : "تحميل الآن"}
+                  {loading ? (
+                    <Spinner animation="border" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                  ) : (
+                    <>
+                      {localStorage.getItem("lang") === "english"
+                        ? "Upload Now"
+                        : "تحميل الآن"}
+                    </>
+                  )}
                 </span>
               </button>
             </div>
@@ -450,6 +467,35 @@ export default function UploadEpisode(props) {
         videoId={file.length === 11 ? file : ""}
         onClose={() => setisOpen(false)}
       />
+      <Modal show={show} onHide={handleClose}>
+        <div id="success_tic" role="dialog">
+          <div class="modal-dialog" style={{ margin: "0" }}>
+            <div class="modal-content">
+              <a
+                class="close"
+                href="#"
+                data-dismiss="modal"
+                onClick={() => setShow(false)}
+              >
+                &times;
+              </a>
+              <div class="page-body">
+                <div class="head">
+                  <h3 style={{ marginTop: "5px" }}>Congratulations !!</h3>
+                  <h4>Your case is registered successfully</h4>
+                </div>
+
+                <h1 style={{ textAlign: "center" }}>
+                  <div class="checkmark-circle">
+                    <div class="background"></div>
+                    <div class="checkmark draw"></div>
+                  </div>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
       <Footer />
     </>
   );

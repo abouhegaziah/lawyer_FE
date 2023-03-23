@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Container, Nav, Tab } from "react-bootstrap";
+import { Container, Nav, Tab, Modal } from "react-bootstrap";
 import Header from "../layout/header";
 import Footer from "../layout/footer";
 import HomeSlider1 from "./../element/home-slider1";
@@ -23,6 +23,10 @@ class Index extends Component {
   state = {
     // Initially, no file is selected
     latestEps: null,
+    name: "",
+    email: "",
+    message: "",
+    show: false,
   };
   componentDidMount() {
     if (!localStorage.getItem("lang")) localStorage.setItem("lang", "arabic");
@@ -52,6 +56,33 @@ class Index extends Component {
         console.log(error);
       });
   }
+  handleMail = (e) => {
+    e.preventDefault();
+    console.log("here");
+    this.setState({ show: true });
+    this.setState({ loading: true });
+    axios
+      .post("https://project-sfj2.onrender.com/case/aboutUs", {
+        email: this.state.email,
+        name: this.state.name,
+        message: this.state.message,
+      })
+      .then((response) => {
+        console.log(response);
+        this.setState({ loading: false });
+        // props.setFile(response.data.url);
+      })
+      .catch((error) => {
+        this.setState({ loading: false });
+        console.log(error);
+      });
+  };
+  handleClose = () => {
+    this.setState({ show: false });
+  };
+  handleOpen = () => {
+    this.setState({ show: true });
+  };
   render() {
     return (
       <>
@@ -209,8 +240,9 @@ class Index extends Component {
                 <div class="image-wrapper">
                   <div class="image-one">
                     <img
-                      src={require("../../assets/images/resource/image-2.jpg")}
+                      src={require("../../assets/images/7H1A2052.JPG")}
                       alt=""
+                      style={{ width: "70%" }}
                     />
                   </div>
                   <div
@@ -220,7 +252,7 @@ class Index extends Component {
                   >
                     <div class="image-outer">
                       <img
-                        src={require("../../assets/images/resource/image-3.jpg")}
+                        src={require("../../assets/images/7H1A2048 Large.jpeg")}
                         alt=""
                       />
                     </div>
@@ -256,11 +288,11 @@ class Index extends Component {
                     <h2>
                       {localStorage.getItem("lang") === "english"
                         ? "MR."
-                        : "السيد"}{" "}
+                        : "مستر"}{" "}
                       <br />
                       {localStorage.getItem("lang") === "english"
                         ? "Lawyer"
-                        : "المحامى"}
+                        : "لوير"}
                     </h2>
                     <div class="text">
                       <p>
@@ -332,7 +364,7 @@ class Index extends Component {
                             src={require("../../assets/images/icons/icon-1.png")}
                             alt=""
                           />
-                        </div>
+                        </div>{" "}
                         <h5>
                           {localStorage.getItem("lang") === "english"
                             ? "Phone Number"
@@ -362,7 +394,7 @@ class Index extends Component {
                             ? "Email Address"
                             : "البريد الإلكتروني"}
                         </h5>
-                        <h2>afwmalaki@gmail</h2>
+                        <h2>afwmalaki@gmail.com</h2>
                       </div>
                     </div>
                   </div>
@@ -766,7 +798,7 @@ class Index extends Component {
                 <div class="image-wrapper">
                   <div class="image-one">
                     <img
-                      src={require("../../assets/images/resource/image-6.jpg")}
+                      src={require("../../assets/images/7H1A2048 Large.jpeg")}
                       alt=""
                     />
                   </div>
@@ -920,11 +952,7 @@ class Index extends Component {
                       localStorage.getItem("lang") === "english" ? "60px" : "0",
                   }}
                 >
-                  <form
-                    method="post"
-                    action="http://azim.commonsupport.com/Finandox/sendemail.php"
-                    id="contact-form"
-                  >
+                  <form id="contact-form">
                     <div
                       class="row clearfix"
                       style={{
@@ -953,6 +981,9 @@ class Index extends Component {
                           class={
                             localStorage.getItem("lang") === "arabic" && "ar"
                           }
+                          onChange={(e) => {
+                            this.setState({ name: e.target.value });
+                          }}
                         />
                         <i
                           class={`fas fa-user ${
@@ -980,6 +1011,9 @@ class Index extends Component {
                           class={
                             localStorage.getItem("lang") === "arabic" && "ar"
                           }
+                          onChange={(e) => {
+                            this.setState({ email: e.target.value });
+                          }}
                         />
                         <i
                           class={`fas fa-envelope ${
@@ -1005,6 +1039,9 @@ class Index extends Component {
                           class={
                             localStorage.getItem("lang") === "arabic" && "ar"
                           }
+                          onChange={(e) => {
+                            this.setState({ message: e.target.value });
+                          }}
                         ></textarea>
                         <i
                           class={`fas fa-edit ${
@@ -1016,8 +1053,7 @@ class Index extends Component {
                       <div class="col-md-12 form-group">
                         <button
                           class="theme-btn btn-style-one"
-                          type="submit"
-                          name="submit-form"
+                          onClick={this.handleMail}
                         >
                           <span class="btn-title">
                             {" "}
@@ -1142,7 +1178,7 @@ class Index extends Component {
                                 "/http://https://afwmalaki.com/demo/fianandox/"
                               }
                             >
-                              afwmalaki.com
+                              www.afwmalaki.com
                             </Link>
                           </li>
                         </ul>
@@ -1385,6 +1421,35 @@ class Index extends Component {
             </div>
           </div>
         </section> */}
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <div id="success_tic" role="dialog">
+            <div class="modal-dialog" style={{ margin: "0" }}>
+              <div class="modal-content">
+                <a
+                  class="close"
+                  href="#"
+                  data-dismiss="modal"
+                  onClick={() => this.handleClose()}
+                >
+                  &times;
+                </a>
+                <div class="page-body">
+                  <div class="head">
+                    <h3 style={{ marginTop: "5px" }}>Congratulations !!</h3>
+                    <h4>Your case is registered successfully</h4>
+                  </div>
+
+                  <h1 style={{ textAlign: "center" }}>
+                    <div class="checkmark-circle">
+                      <div class="background"></div>
+                      <div class="checkmark draw"></div>
+                    </div>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
 
         <Footer />
       </>
