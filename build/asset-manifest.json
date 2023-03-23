@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.c60769f7.chunk.css",
-    "main.js": "/static/js/main.8555c34b.chunk.js",
-    "main.js.map": "/static/js/main.8555c34b.chunk.js.map",
+    "main.css": "/static/css/main.cdebf657.chunk.css",
+    "main.js": "/static/js/main.a94716a3.chunk.js",
+    "main.js.map": "/static/js/main.a94716a3.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.76f6b1ca.js",
     "runtime-main.js.map": "/static/js/runtime-main.76f6b1ca.js.map",
     "static/css/2.03a0228a.chunk.css": "/static/css/2.03a0228a.chunk.css",
-    "static/js/2.6184ee22.chunk.js": "/static/js/2.6184ee22.chunk.js",
-    "static/js/2.6184ee22.chunk.js.map": "/static/js/2.6184ee22.chunk.js.map",
+    "static/js/2.4e1510c7.chunk.js": "/static/js/2.4e1510c7.chunk.js",
+    "static/js/2.4e1510c7.chunk.js.map": "/static/js/2.4e1510c7.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.5b6c599326b16dc6aa0ad5b74923c251.js": "/precache-manifest.5b6c599326b16dc6aa0ad5b74923c251.js",
+    "precache-manifest.89ab9b88232263ae245be8c02121a262.js": "/precache-manifest.89ab9b88232263ae245be8c02121a262.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.03a0228a.chunk.css.map": "/static/css/2.03a0228a.chunk.css.map",
-    "static/css/main.c60769f7.chunk.css.map": "/static/css/main.c60769f7.chunk.css.map",
-    "static/js/2.6184ee22.chunk.js.LICENSE.txt": "/static/js/2.6184ee22.chunk.js.LICENSE.txt",
+    "static/css/main.cdebf657.chunk.css.map": "/static/css/main.cdebf657.chunk.css.map",
+    "static/js/2.4e1510c7.chunk.js.LICENSE.txt": "/static/js/2.4e1510c7.chunk.js.LICENSE.txt",
     "static/media/1.jpg": "/static/media/1.11d0fb35.jpg",
     "static/media/11.jpg": "/static/media/11.9a012589.jpg",
     "static/media/12.jpg": "/static/media/12.db982374.jpg",
@@ -112,13 +112,14 @@
     "static/media/team-4.jpg": "/static/media/team-4.ee707ef2.jpg",
     "static/media/team-5.jpg": "/static/media/team-5.d67d947d.jpg",
     "static/media/team-6.jpg": "/static/media/team-6.3f9dc065.jpg",
-    "static/media/team-7.jpg": "/static/media/team-7.1380c1f1.jpg"
+    "static/media/team-7.jpg": "/static/media/team-7.1380c1f1.jpg",
+    "static/media/tiktok.svg": "/static/media/tiktok.2c4d7fe6.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.76f6b1ca.js",
     "static/css/2.03a0228a.chunk.css",
-    "static/js/2.6184ee22.chunk.js",
-    "static/css/main.c60769f7.chunk.css",
-    "static/js/main.8555c34b.chunk.js"
+    "static/js/2.4e1510c7.chunk.js",
+    "static/css/main.cdebf657.chunk.css",
+    "static/js/main.a94716a3.chunk.js"
   ]
 }

@@ -127,93 +127,6 @@ class About extends Component {
               }}
             >
               <div class="col-lg-6">
-                <div class="image-wrapper">
-                  <div class="image-one">
-                    <img
-                      src={require("../../assets/images/6X9A0396.00_00_40_10.Still002.jpg")}
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div>
-                  <p>
-                    {localStorage.getItem("lang") === "english" ? (
-                      <>
-                        Nevertheless, Counsellor El Shaer never forgot about his
-                        ideals and went on to obtain various certificates
-                        specifically in the field or arbitration primarily to be
-                        able to help people as much as possible and be able to
-                        help in conflict management and arbitration such as the
-                        certificate for Program for preparing Arab and
-                        international arbitration consultants in international
-                        commercial arbitration and drafting contracts from the
-                        International Arbitration Tribunal and the American
-                        Institute for Training and Development, as well as Ain
-                        Shams University. Not feeling satisfied with his amazing
-                        accomplishments, Counsellor Lawyer then obtained the
-                        certificate of Arbitration Practice from the
-                        International Arbitration Tribunal and a Certificate of
-                        Merit from The American Institute for development and
-                        Training. All of which allowed him to help the Egyptian
-                        community living in UAE and won him the respect and
-                        thanks of the Egyptian Consulate in UAE.
-                      </>
-                    ) : (
-                      <>
-                        ومع ذلك ، لم ينس المستشار الشاعر أبدا مثله العليا واستمر
-                        في الحصول على شهادات مختلفة خاصة في مجال التحكيم في
-                        المقام الأول ليكون قادرا على مساعدة الناس قدر الإمكان
-                        ويكون قادرا على المساعدة في إدارة النزاعات والتحكيم مثل
-                        شهادة برنامج إعداد مستشاري التحكيم العرب والدوليين في
-                        التحكيم التجاري الدولي وصياغة العقود من هيئة التحكيم
-                        الدولية والمعهد الأمريكي للتحكيم التدريب والتطوير، وكذلك
-                        جامعة عين شمس. لم يشعر المحامي المستشار بالرضا عن
-                        إنجازاته المذهلة ، ثم حصل على شهادة ممارسة التحكيم من
-                        هيئة التحكيم الدولية وشهادة تقدير من المعهد الأمريكي
-                        للتطوير والتدريب. كل ذلك سمح له بمساعدة الجالية المصرية
-                        التي تعيش في الإمارات العربية المتحدة وأكسبه احترام وشكر
-                        القنصلية المصرية في الإمارات العربية المتحدة. تكريما
-                        خاصا.
-                      </>
-                    )}
-                  </p>
-                  <p>
-                    {localStorage.getItem("lang") === "english" ? (
-                      <>
-                        With the month of Ramadan rapidly approaching us, the
-                        idea of the program A’afw Malaky had counsellor Ahmed el
-                        Shaer thinking as he had always longed to spread the
-                        feelings of justice, love and forgiveness around him.
-                        The program itself is Counsellor EL Shaer’s way for an
-                        ongoing charity for the soul of the late counsellor
-                        Karim Al-Shaer. A couple of years ago, after a great
-                        personal experience Counsellor EL Shaer found inner
-                        peace once more when faced with forgiveness from a
-                        family member, this has led him to reorganize his
-                        thoughts and come up with the finalised version of A’afw
-                        Malaky; where he can listen, discuss, help and arbitrate
-                        between other people to help them find forgiveness in
-                        their hearts and find inner peace just as he did.
-                      </>
-                    ) : (
-                      <>
-                        مع اقتراب شهر رمضان بسرعة، كانت فكرة برنامج “عفو ملكي”
-                        يفكر فيها المستشار أحمد الشاعر لأنه كان يتوق دائما إلى
-                        نشر مشاعر العدل والمحبة والتسامح من حوله. البرنامج نفسه
-                        هو صدقة جارية على روح المستشار الراحل كريم الشاعر. قبل
-                        عامين ، بعد تجربة شخصية رائعة ، وجد المستشار أحمد الشاعر
-                        السلام الداخلي مرة أخرى عندما واجه المغفرة من أحد أفراد
-                        الأسرة ، مما دفعه إلى إعادة تنظيم أفكاره والتوصل إلى
-                        النسخة النهائية من "عفو ملكي" حيث يمكنه الاستماع
-                        والمناقشة والمساعدة والتحكيم بين الآخرين لمساعدتهم على
-                        العثور على المغفرة في قلوبهم وإيجاد السلام الداخلي تماما
-                        كما فعل.
-                      </>
-                    )}
-                  </p>
-                </div>
-              </div>
-              <div class="col-lg-6">
                 <div class="content-box">
                   <div
                     class="sec-title"
@@ -373,6 +286,93 @@ class About extends Component {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="image-wrapper">
+                  <div class="image-one">
+                    <img
+                      src={require("../../assets/images/6X9A0396.00_00_40_10.Still002.jpg")}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div>
+                  <p>
+                    {localStorage.getItem("lang") === "english" ? (
+                      <>
+                        Nevertheless, Counsellor El Shaer never forgot about his
+                        ideals and went on to obtain various certificates
+                        specifically in the field or arbitration primarily to be
+                        able to help people as much as possible and be able to
+                        help in conflict management and arbitration such as the
+                        certificate for Program for preparing Arab and
+                        international arbitration consultants in international
+                        commercial arbitration and drafting contracts from the
+                        International Arbitration Tribunal and the American
+                        Institute for Training and Development, as well as Ain
+                        Shams University. Not feeling satisfied with his amazing
+                        accomplishments, Counsellor Lawyer then obtained the
+                        certificate of Arbitration Practice from the
+                        International Arbitration Tribunal and a Certificate of
+                        Merit from The American Institute for development and
+                        Training. All of which allowed him to help the Egyptian
+                        community living in UAE and won him the respect and
+                        thanks of the Egyptian Consulate in UAE.
+                      </>
+                    ) : (
+                      <>
+                        ومع ذلك ، لم ينس المستشار الشاعر أبدا مثله العليا واستمر
+                        في الحصول على شهادات مختلفة خاصة في مجال التحكيم في
+                        المقام الأول ليكون قادرا على مساعدة الناس قدر الإمكان
+                        ويكون قادرا على المساعدة في إدارة النزاعات والتحكيم مثل
+                        شهادة برنامج إعداد مستشاري التحكيم العرب والدوليين في
+                        التحكيم التجاري الدولي وصياغة العقود من هيئة التحكيم
+                        الدولية والمعهد الأمريكي للتحكيم التدريب والتطوير، وكذلك
+                        جامعة عين شمس. لم يشعر المحامي المستشار بالرضا عن
+                        إنجازاته المذهلة ، ثم حصل على شهادة ممارسة التحكيم من
+                        هيئة التحكيم الدولية وشهادة تقدير من المعهد الأمريكي
+                        للتطوير والتدريب. كل ذلك سمح له بمساعدة الجالية المصرية
+                        التي تعيش في الإمارات العربية المتحدة وأكسبه احترام وشكر
+                        القنصلية المصرية في الإمارات العربية المتحدة. تكريما
+                        خاصا.
+                      </>
+                    )}
+                  </p>
+                  <p>
+                    {localStorage.getItem("lang") === "english" ? (
+                      <>
+                        With the month of Ramadan rapidly approaching us, the
+                        idea of the program A’afw Malaky had counsellor Ahmed el
+                        Shaer thinking as he had always longed to spread the
+                        feelings of justice, love and forgiveness around him.
+                        The program itself is Counsellor EL Shaer’s way for an
+                        ongoing charity for the soul of the late counsellor
+                        Karim Al-Shaer. A couple of years ago, after a great
+                        personal experience Counsellor EL Shaer found inner
+                        peace once more when faced with forgiveness from a
+                        family member, this has led him to reorganize his
+                        thoughts and come up with the finalised version of A’afw
+                        Malaky; where he can listen, discuss, help and arbitrate
+                        between other people to help them find forgiveness in
+                        their hearts and find inner peace just as he did.
+                      </>
+                    ) : (
+                      <>
+                        مع اقتراب شهر رمضان بسرعة، كانت فكرة برنامج “عفو ملكي”
+                        يفكر فيها المستشار أحمد الشاعر لأنه كان يتوق دائما إلى
+                        نشر مشاعر العدل والمحبة والتسامح من حوله. البرنامج نفسه
+                        هو صدقة جارية على روح المستشار الراحل كريم الشاعر. قبل
+                        عامين ، بعد تجربة شخصية رائعة ، وجد المستشار أحمد الشاعر
+                        السلام الداخلي مرة أخرى عندما واجه المغفرة من أحد أفراد
+                        الأسرة ، مما دفعه إلى إعادة تنظيم أفكاره والتوصل إلى
+                        النسخة النهائية من "عفو ملكي" حيث يمكنه الاستماع
+                        والمناقشة والمساعدة والتحكيم بين الآخرين لمساعدتهم على
+                        العثور على المغفرة في قلوبهم وإيجاد السلام الداخلي تماما
+                        كما فعل.
+                      </>
+                    )}
+                  </p>
                 </div>
               </div>
             </div>

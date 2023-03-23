@@ -1139,10 +1139,10 @@ class Index extends Component {
                           <li>
                             <Link
                               to={
-                                "/http://https://lawyer-f514e.web.app/demo/fianandox/"
+                                "/http://https://afwmalaki.com/demo/fianandox/"
                               }
                             >
-                              lawyer-f514e.web.app
+                              afwmalaki.com
                             </Link>
                           </li>
                         </ul>
