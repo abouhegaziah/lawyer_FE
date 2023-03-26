@@ -5,15 +5,15 @@ import "./assets/css/bootstrap.css";
 import "./assets/css/style.css";
 import "./assets/css/responsive.css";
 import "./assets/css/color.css";
-
+// check
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Router />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="App">
+				<Router />
+			</div>
+		);
+	}
 }
 
 export default App;
