@@ -38,7 +38,7 @@ import ShowEp from "./pages/ShowEp";
 class Router extends Component {
   render() {
     return (
-      <BrowserRouter basename={"/demo/fianandox/"}>
+      <BrowserRouter>
         {/* <BrowserRouter> */}
         <div class="page-wrapper">
           <Switch>
